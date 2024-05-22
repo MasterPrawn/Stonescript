@@ -179,12 +179,12 @@ aether_summ()
           equipR fire sword +9
     :?foe.GetCount(15) >= 3
       equipL ice wand
-      equipR poison wand
+      equipR fire shield
     :?foe = ice wall | foe = ice pillar
       equipL fire sword +10
       equipR fire sword +9
     :
       equipL fire sword +10
-      equipR fire sword +9
+      equipR fire shield
   lootwalk()
   armor_regen()
