@@ -92,11 +92,12 @@ func AAC()
 
 //==========================================//
 
-aether_summ()
 AAC()
 
 ?hp <= 10
   activate potion
+
+aether_summ()
 
 ?loc = rocky & summon.count = 1
   bdashstaff_use()
