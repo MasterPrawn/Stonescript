@@ -1,0 +1,181 @@
+//==========================================//
+
+func lootwalk()
+  ?pickup.distance < 15 & summon.count = 1
+    equipL triskelion
+    equipR star
+  ?foe.distance > 23 & armor = 23
+  ^& summon.count = 1
+    equipL triskelion
+    equipR ouroboros
+
+func bardiche_use()
+  ?foe.distance <= 10 & item.CanActivate()
+  ^& item.GetCooldown("bardiche") <= 0
+  ^| item.GetCooldown("bardiche") > 870
+    equip bardiche
+    activate R
+
+func mask_use()
+  ?item.GetCooldown("mask") <= 0
+  ^& item.CanActivate()
+  ^& foe.distance < 25
+    equip mask
+    activate R
+ 
+func blade_use()
+  ?foe.GetCount(40) > 5 &
+  ^item.GetCooldown("blade") <= 0
+    equip blade
+    activate R
+ 
+func bdashstaff_use()
+  ?foe.distance <= 16 & foe.distance >= 11 & 
+  ^item.GetCooldown("bash") <= 0
+    equipL triskelion
+    equipR bashing shield
+  :?foe.distance <= 16 & foe.distance >= 11 & 
+  ^item.GetCooldown("dash") <= 0
+    equipL triskelion
+    equipR dashing shield
+  :?item.GetCooldown("quarterstaff") <= 0
+  ^& item.CanActivate() & foe ! boss
+  ^& foe.distance > 6
+    equip quarterstaff
+    activate R
+
+func aether_summ()
+  ?summon.count = 0 & item.CanActivate()
+  ^& item.GetCooldown("aether_talisman") <= 0
+    equipL triskelion
+    equipR aether talisman
+    activate R
+
+func armor_regen()
+  ?armor < 14 & foe.distance > 23
+  ^& summon.count = 1
+    equipL triskelion 
+    equipR compound shield +8
+  ?armor <= 23 & armor >= 14
+  ^& foe.distance > 23 & summon.count = 1
+    equipL triskelion
+    equipR compound shield +9
+
+//==========================================//
+
+func isEquippedTwoHanded()
+  return !item.left
+
+func AAC()
+  ?!ai.enabled
+    return
+
+  var isTwoHanded = isEquippedTwoHanded()
+  var leftItem = item.left
+  var rightItem = item.right
+  
+  ?item.right.state = 3
+    equipR shield *0 +0
+  ?item.left.state = 3
+    equipL wand *0 +0
+  
+  ?isTwoHanded
+    ?rightItem
+      equip @rightItem@
+    :?leftItem
+      equip @leftItem@
+  :
+    ?rightItem
+      equipR @rightItem@
+    ?leftItem
+      equipL @leftItem@
+
+//==========================================//
+
+aether_summ()
+AAC()
+
+?hp <= 10
+  activate potion
+
+?loc = rocky & summon.count = 1
+  bdashstaff_use()
+  lootwalk()
+  ?foe = ice
+    equipL fire sword +10
+    equipR fire sword +9
+  :?foe = fire
+    equipL aether sword +10
+    equipR aether sword +6
+  :
+    equipL vigor sword +10
+    equipR vigor sword +9
+  lootwalk()
+  armor_regen()
+
+?loc = halls & summon.count = 1
+  blade_use()
+  bdashstaff_use()
+  ?foe.distance <= 23
+    ?foe.GetCount(15) >= 3 | foe = ghost
+      equipL ice wand
+      equipR poison wand
+    :?foe = boss
+      bardiche_use()
+      ?item.GetCooldown("bardiche") > 0
+      ^& item.GetCooldown("bardiche") < 870
+        equipL vigor sword +10
+        equipR vigor sword +9
+    :
+        equipL vigor sword +10
+        equipR vigor sword +9
+  lootwalk()
+  armor_regen()
+
+?loc = mine & summon.count = 1
+  blade_use()
+  bdashstaff_use()
+  ?foe.distance <= 23
+    ?foe.GetCount(15) >= 3
+      equipL ice wand
+      equipR poison wand
+
+    :?foe = boss
+      bardiche_use()
+      ?item.GetCooldown("bardiche") > 0
+      ^& item.GetCooldown("bardiche") < 870
+        equipL aether sword +10
+        equipR aether sword +9
+      :
+        equip poison crossbow
+    :
+        equipL aether sword +10
+        equipR aether sword +9
+  lootwalk()
+  armor_regen()
+
+?loc = ridge & summon.count = 1
+  blade_use()
+  bdashstaff_use()
+  ?foe.distance <= 23
+    ?foe = boss
+      ?foe.distance = 3
+        equip shovel
+      :?foe.distance < 3
+        bardiche_use()
+        ?item.GetCooldown("bardiche") > 0
+        ^& item.GetCooldown("bardiche") < 870
+        ^& foe.distance <= 10
+          equipL fire sword +10
+          equipR fire sword +9
+    :?foe.GetCount(15) >= 3
+      equipL ice wand
+      equipR poison wand
+    :?foe = ice wall | foe = ice pillar
+      equipL fire sword +10
+      equipR fire sword +9
+    :
+      equipL fire sword +10
+      equipR fire sword +9
+  lootwalk()
+  armor_regen()
