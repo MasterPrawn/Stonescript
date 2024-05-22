@@ -60,6 +60,9 @@ func armor_regen()
   ^& foe.distance > 23 & summon.count = 1
     equipL triskelion
     equipR compound shield +9
+  ?pickup.distance < 15 & summon.count = 1
+    equipL star
+    equipR compound shield +8
 
 //==========================================//
 
@@ -147,8 +150,7 @@ aether_summ()
       ^& item.GetCooldown("bardiche") < 870
         equipL aether sword +10
         equipR aether sword +9
-      ?foe.state = 32
-        ?foe.time = 30
+      ?foe.state = 32 & foe.time = 30
           equipL mind
       ?foe.state = 33
         equipL aether sword +10
