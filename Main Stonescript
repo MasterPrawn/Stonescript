@@ -146,13 +146,13 @@ aether_summ()
       ^& item.GetCooldown("bardiche") < 870
       ^& foe.distance <= 10
         equipL vigor sword +10
-        equipR vigor sword +9
+        equipR poison sword +10
     :?foe.GetCount(15) >= 3
       equipL ice wand +10
       equipR ice wand +9
     :
       equipL vigor sword +10
-      equipR vigor sword +9
+      equipR poison sword +10
   lootwalk()
   armor_regen()
 
