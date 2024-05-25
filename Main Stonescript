@@ -136,6 +136,26 @@ aether_summ()
   lootwalk()
   armor_regen()
 
+?loc = forest & summon.count = 1
+  blade_use()
+  bdashstaff_use()
+  ?foe.distance <= 23
+    ?foe = boss
+      bardiche_use()
+      ?item.GetCooldown("bardiche") > 0
+      ^& item.GetCooldown("bardiche") < 870
+      ^& foe.distance <= 10
+        equipL vigor sword +10
+        equipR vigor sword +9
+    :?foe.GetCount(15) >= 3
+      equipL ice wand +10
+      equipR ice wand +9
+    :
+      equipL vigor sword +10
+      equipR vigor sword +9
+  lootwalk()
+  armor_regen()
+
 ?loc = mine & summon.count = 1
   blade_use()
   bdashstaff_use()
@@ -171,9 +191,9 @@ aether_summ()
       ?foe.armor > 0
         equipL fire sword +10
         equipR fire sword +9
-      :?foe.distance = 3 & foe.armor = 0
+      :?foe.distance = 3
         equip shovel
-      :?foe.distance < 3 & foe.armor = 0
+      :?foe.distance < 3
         bardiche_use()
         ?item.GetCooldown("bardiche") > 0
         ^& item.GetCooldown("bardiche") < 870
