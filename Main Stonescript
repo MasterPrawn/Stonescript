@@ -173,9 +173,9 @@ aether_summ()
       ^& item.GetCooldown("bardiche") < 870
         equipL aether sword +10
         equipR aether sword +9
-      :?foe.state = 32 & foe.time < 30
+      ?foe.state = 32 & foe.time > 30
         equipL mind
-      :?foe.state = 33
+      ?foe.state = 33
         equipL aether sword +10
         equipR aether sword +9
       :
