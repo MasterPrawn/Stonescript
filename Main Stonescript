@@ -122,13 +122,13 @@ aether_summ()
       equipL ice wand +10
       equipR ice wand +9
     :?foe = boss
+      ?foe.state = 32 & foe.time = 55
+        equipL mind
       bardiche_use()
       ?item.GetCooldown("bardiche") > 0
       ^& item.GetCooldown("bardiche") < 870
         equipL vigor sword +10
         equipR vigor sword +9
-      :?foe.state = 32 & foe.time = 55
-        equipL mind
     :
         equipL vigor sword +10
         equipR vigor sword +9
