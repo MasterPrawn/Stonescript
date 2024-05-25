@@ -168,6 +168,9 @@ aether_summ()
   bdashstaff_use()
   ?foe.distance <= 23
     ?foe = boss
+      ?foe.armor > 0
+        equipL fire sword +10
+        equipR fire sword +9
       ?foe.distance = 3 & foe.armor = 0
         equip shovel
       :?foe.distance < 3 & foe.armor = 0
