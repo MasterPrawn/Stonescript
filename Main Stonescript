@@ -93,8 +93,7 @@ func AAC()
 
 AAC()
 
-?foe = bronze_guardian & foe.state = 32
-^& foe.time > 25
+?foe = guardian & foe.state = 32
   equipL mind
 
 ?hp <= 10
@@ -168,12 +167,7 @@ aether_summ()
     :?foe = bomb & foe.distance < 5
       equipL mind
     :?foe = boss
-      bardiche_use()
-      ?item.GetCooldown("bardiche") > 0
-      ^& item.GetCooldown("bardiche") < 870
-        equipL aether sword +10
-        equipR aether sword +9
-      :?foe.state = 33
+      ?foe.state = 33
         equipL aether sword +10
         equipR aether sword +9
       :
