@@ -1,4 +1,5 @@
->c0,0,@foe.state@,@foe.time@
+>c-20,-5,Distance: @foe.distance@,@foe.time@
+>c-20,0,State/Time: @foe.state@,@foe.time@
 
 //==========================================//
 
