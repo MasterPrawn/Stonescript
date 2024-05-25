@@ -177,7 +177,7 @@ aether_summ()
         equipL aether sword +10
         equipR aether sword +9
       :
-        equip poison crossbow
+        equip aether crossbow
     :
         equipL aether sword +10
         equipR aether sword +9
