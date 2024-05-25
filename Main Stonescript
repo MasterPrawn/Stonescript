@@ -171,7 +171,7 @@ aether_summ()
       ?foe.armor > 0
         equipL fire sword +10
         equipR fire sword +9
-      ?foe.distance = 3 & foe.armor = 0
+      :?foe.distance = 3 & foe.armor = 0
         equip shovel
       :?foe.distance < 3 & foe.armor = 0
         bardiche_use()
