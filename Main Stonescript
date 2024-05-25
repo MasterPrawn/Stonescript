@@ -120,10 +120,10 @@ aether_summ()
 ?loc = halls & summon.count = 1
   blade_use()
   bdashstaff_use()
-  ?foe.distance <= 23
+  ?foe.distance <= 15
     ?foe.GetCount(15) >= 3 | foe = ghost
-      equipL ice wand
-      equipR poison wand
+      equipL ice wand +10
+      equipR ice wand +9
     :?foe = boss
       bardiche_use()
       ?item.GetCooldown("bardiche") > 0
@@ -139,7 +139,7 @@ aether_summ()
 ?loc = forest & summon.count = 1
   blade_use()
   bdashstaff_use()
-  ?foe.distance <= 23
+  ?foe.distance <= 15
     ?foe = puff & foe.distance < 5
       equipL mind
     :?foe = boss
@@ -161,11 +161,10 @@ aether_summ()
 ?loc = mine & summon.count = 1
   blade_use()
   bdashstaff_use()
-  ?foe.distance <= 23
+  ?foe.distance <= 15
     ?foe.GetCount(15) >= 3
-      equipL ice wand
-      equipR poison wand
-
+      equipL ice wand +10
+      equipR ice wand +9
     :?foe = boss
       bardiche_use()
       ?item.GetCooldown("bardiche") > 0
@@ -188,13 +187,14 @@ aether_summ()
 ?loc = ridge & summon.count = 1
   blade_use()
   bdashstaff_use()
-  ?foe.distance <= 23
+  ?foe.distance <= 15
     ?foe = boss
       ?foe.armor > 0
         equipL fire sword +10
         equipR fire sword +9
       :?foe.distance = 3
-        equip shovel
+        equipL fire talisman
+        equipR compound shield +11
       :?foe.distance < 3
         bardiche_use()
         ?item.GetCooldown("bardiche") > 0
