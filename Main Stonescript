@@ -165,22 +165,22 @@ aether_summ()
     ?foe.GetCount(15) >= 3
       equipL ice wand +10
       equipR ice wand +9
-    :?foe = boss
-      bardiche_use()
-      ?item.GetCooldown("bardiche") > 0
-      ^& item.GetCooldown("bardiche") < 870
-        equipL aether sword +10
-        equipR aether sword +9
-      ?foe.state = 32 & foe.time < 30
-        equipL mind
-      ?foe.state = 33
-        equipL aether sword +10
-        equipR aether sword +9
-      :
-        equip aether crossbow
+  :?foe = boss
+    bardiche_use()
+    ?item.GetCooldown("bardiche") > 0
+    ^& item.GetCooldown("bardiche") < 870
+      equipL aether sword +10
+      equipR aether sword +9
+    :?foe.state = 32 & foe.time < 30
+      equipL mind
+    :?foe.state = 33
+      equipL aether sword +10
+      equipR aether sword +9
     :
-        equipL aether sword +10
-        equipR aether sword +9
+      equip aether crossbow
+  :
+      equipL aether sword +10
+      equipR aether sword +9
   lootwalk()
   armor_regen()
 
