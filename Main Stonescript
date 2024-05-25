@@ -166,8 +166,10 @@ aether_summ()
       equipL mind
     :?foe = boss
       ?foe.state = 33
-        equipL aether sword +10
-        equipR aether sword +9
+        ?foe.distance < 20 & foe.distance > 10
+          equipL aether sword +10
+          equipR aether sword +9
+        :
           bardiche_use()
           ?item.GetCooldown("bardiche") > 0
           ^& item.GetCooldown("bardiche") < 870
