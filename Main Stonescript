@@ -55,14 +55,14 @@ func armor_regen()
   ?armor < 14 & foe.distance > 23
   ^& summon.count = 1
     equipL triskelion 
-    equipR compound shield +8
-  ?armor <= 23 & armor >= 14
+    equipR compound shield +11
+  ?armor <= 24 & armor >= 14
   ^& foe.distance > 23 & summon.count = 1
     equipL triskelion
-    equipR compound shield +9
+    equipR compound shield +10
   ?pickup.distance < 15 & summon.count = 1
     equipL star
-    equipR compound shield +8
+    equipR compound shield +11
 
 //==========================================//
 
@@ -110,7 +110,7 @@ aether_summ()
     equipR fire sword +9
   :?foe = fire
     equipL aether sword +10
-    equipR aether sword +6
+    equipR aether sword +9
   :
     equipL vigor sword +10
     equipR vigor sword +9
@@ -170,7 +170,7 @@ aether_summ()
     ?foe = boss
       ?foe.distance = 3
         equip shovel
-      :?foe.distance < 3
+      :?foe.distance < 3 & foe.armor = 0
         bardiche_use()
         ?item.GetCooldown("bardiche") > 0
         ^& item.GetCooldown("bardiche") < 870
