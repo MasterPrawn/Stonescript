@@ -140,7 +140,9 @@ aether_summ()
   blade_use()
   bdashstaff_use()
   ?foe.distance <= 23
-    ?foe = boss
+    ?foe = puff & foe.distance < 5
+      equipL mind
+    :?foe = boss
       bardiche_use()
       ?item.GetCooldown("bardiche") > 0
       ^& item.GetCooldown("bardiche") < 870
