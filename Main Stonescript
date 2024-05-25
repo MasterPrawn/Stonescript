@@ -1,6 +1,8 @@
->c-20,-5,Distance: @foe.distance@
+>c-45,-4,ENEMY INFO
+>c-45,-3,Name: @foe.name@
+>c-45,-1,Dist: @foe.distance@
 ^,@foe.GetCount(15)@
->c-20,0,State/Time: @foe.state@,@foe.time@
+>c-45,0,S/T: @foe.state@,@foe.time@
 
 //==========================================//
 
