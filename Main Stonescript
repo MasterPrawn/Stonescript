@@ -140,10 +140,13 @@ fire_summ()
   ?foe = pallas
     ?summon.GetId() = "voidweaver"
       fire_summ()
-    :?summon.GetId() = "cinderwisp"
+    :?foe.distance <= 10
       bardiche_use()
       ?item.GetCooldown("bardiche") > 0
       ^& item.GetCooldown("bardiche") < 870
+        equipL vigor sword +10
+        equipR vigor sword +9
+    :
         equipL vigor sword +10
         equipR vigor sword +9
   :?foe.distance < 17
