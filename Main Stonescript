@@ -1,5 +1,5 @@
->c-45,-4,ENEMY INFO
->c-45,-3,Name: @foe.name@
+>c-45,-3,ENEMY INFO
+>c-45,-2,Name: @foe.name@
 >c-45,-1,Dist: @foe.distance@
 ^,@foe.GetCount(15)@
 >c-45,0,S/T: @foe.state@,@foe.time@
@@ -20,6 +20,13 @@ func bardiche_use()
   ^& item.GetCooldown("bardiche") <= 0
   ^| item.GetCooldown("bardiche") > 870
     equip bardiche
+    activate R
+
+func hammer_use()
+  ?foe.distance <= 7 & item.CanActivate()
+  ^& item.GetCooldown("hammer") <= 0
+  ^| item.GetCooldown("hammer") > 630
+    equip heavy hammer
     activate R
 
 func mask_use()
@@ -165,14 +172,16 @@ aether_summ()
   ?foe.distance <= 23
     ?foe.GetCount(15) >= 3
       equipL ice wand +10
-      equipR ice wand +9
+      equipR aether shield
     :?foe = bomb & foe.distance < 5
       equipL mind
     :?foe = boss
       ?foe.state = 33
-        ?foe.distance < 20 & foe.distance > 10
+        ?foe.distance < 25 & foe.distance > 10
           equipL aether sword +10
           equipR aether sword +9
+        :?foe.armor > 1 & foe.distance <= 7
+          hammer_use()
         :
           bardiche_use()
           ?item.GetCooldown("bardiche") > 0
