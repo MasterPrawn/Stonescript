@@ -120,8 +120,7 @@ func AAC()
       equipL @leftItem@
 
 //==========================================//
-?foe = boss & summon.GetId() = "voidweaver"
-  fire_summ()
+
 AAC()
 ?hp <= 10
   activate potion
