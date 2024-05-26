@@ -127,7 +127,6 @@ AAC()
   activate potion
 aether_summ()
 fire_summ()
-bdashstaff_use()
 blade_use()
 
 ?loc = rocky & summon.count = 1
@@ -241,3 +240,4 @@ blade_use()
 
 lootwalk()
 armor_regen()
+bdashstaff_use()
