@@ -9,6 +9,7 @@
 >c-45,5,BSH: @item.GetCooldown("bash")@, 
 ^DSH: @item.GetCooldown("dash")@
 >c-45,6,STF: @item.GetCooldown("quarterstaff")@
+^,HAM: @item.GetCooldown("hammer")@
 
 // "dysangelos,xyloalgia,poena,bolesh,
 //  ^shroom,morel,enoki,pallas,guardian,hrimnir,
@@ -19,7 +20,7 @@ func lootwalk()
   ?pickup.distance < 15 & summon.count = 1
     equipL triskelion
     equipR star
-  ?foe.distance > 23 & armor = 24
+  ?foe.distance > 23 & armor > 24
   ^& summon.count = 1
     equipL triskelion
     equipR ouroboros
