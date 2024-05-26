@@ -234,8 +234,7 @@ fire_summ()
         equipL fire sword +10
         equipR fire sword +9
       :?foe.distance = 3
-        equipL fire talisman
-        equipR compound shield +11
+        equip shovel
       :?foe.distance < 3
         bardiche_use()
         ?item.GetCooldown("bardiche") > 0
