@@ -71,8 +71,8 @@ func fire_summ()
   ?foe = boss & summon.GetId() = "voidweaver"
   ^& item.CanActivate()
   ^& item.GetCooldown("aether_talisman") <= 0
-    equip fire talisman
-    activate R
+    equipL fire talisman
+    activate L
 
 func armor_regen()
   ?armor < 14 & foe.distance > 23
@@ -153,7 +153,7 @@ fire_summ()
   :?foe = pallas
   ^& summon.GetId() = "voidweaver"
     fire_summ()
-    ?summon.GetId() = "cinderwishp"
+    ?summon.GetId() = "cinderwisp"
       bardiche_use()
       ?item.GetCooldown("bardiche") > 0
       ^& item.GetCooldown("bardiche") < 870
