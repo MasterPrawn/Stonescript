@@ -4,9 +4,11 @@
 ^,@foe.GetCount(15)@
 >c-45,0,S/T:  @foe.state@,@foe.time@
 >c-45,3,CD STATUS
->c-45,4,HAM: @
+>c-45,4,BAR: @bar_cd@
 
-var hamcd
+var bar_cd = @get_bar_cd@
+
+func get_bar_cd
 
 // "dysangelos,xyloalgia,poena,bolesh,
 //  ^shroom,morel,enoki,pallas,guardian,hrimnir,
@@ -145,12 +147,12 @@ fire_summ()
   ?foe = pallas
     ?summon.GetId() = "voidweaver"
       fire_summ()
-    :?foe.distance <= 16
+    :?foe.distance <= 16 & foe.distance >= 11
       bdash_use()
-      ?foe.GetCount(15) >= 3 | foe = ghost
-      ^& foe.distance <= 15
-        equipL ice wand +10
-        equipR ice wand +9
+    :?foe.GetCount(15) >= 3 | foe = ghost
+    ^& foe.distance <= 15
+      equipL ice wand +10
+      equipR ice wand +9
     :?foe.distance <= 10
       bardiche_use()
       ?item.GetCooldown("bardiche") > 0
