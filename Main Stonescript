@@ -4,7 +4,7 @@
 ^,@foe.GetCount(15)@
 >c-45,0,S/T:  @foe.state@,@foe.time@
 >c-45,3,CD STATUS
->c-45,4,BAR: @bar_cd@
+>c-45,4,BAR: @item.GetCooldown("bardiche")@
 
 var bar_cd = @get_bar_cd()@
 
