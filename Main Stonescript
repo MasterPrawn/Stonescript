@@ -42,7 +42,7 @@ func blade_use()
     equip blade
     activate R
  
-func bdashstaff_use()
+func bdash_use()
   ?foe.distance <= 16 & foe.distance >= 11 & 
   ^item.GetCooldown("bash") <= 0
     equipL triskelion
@@ -51,9 +51,10 @@ func bdashstaff_use()
   ^item.GetCooldown("dash") <= 0
     equipL triskelion
     equipR dashing shield
-  :?item.GetCooldown("quarterstaff") <= 0
-  ^& item.CanActivate() & foe ! boss
-  ^& foe.distance > 6
+
+func staff_use()
+  ?item.GetCooldown("quarterstaff") <= 0
+  ^& item.CanActivate() & foe.distance > 6
     equip quarterstaff
     activate R
 
@@ -119,7 +120,7 @@ aether_summ()
 fire_summ()
 
 ?loc = rocky & summon.count = 1
-  bdashstaff_use()
+  bdash_use()
   lootwalk()
   ?foe = ice
     equipL fire sword +10
@@ -135,7 +136,7 @@ fire_summ()
 
 ?loc = halls & summon.count = 1
   ?foe.distance > 17
-    bdashstaff_use()
+    bdash_use()
     lootwalk()
     armor_regen()
   :?foe.distance < 17
@@ -143,7 +144,7 @@ fire_summ()
     ?foe.GetCount(15) >= 3 | foe = ghost
       equipL ice wand +10
       equipR ice wand +9
-    ?foe = boss
+    ?foe = boss & summon.GetId() = "cinderwisp"
       bardiche_use()
       ?item.GetCooldown("bardiche") > 0
       ^& item.GetCooldown("bardiche") < 870
@@ -155,7 +156,7 @@ fire_summ()
 
 ?loc = forest & summon.count = 1
   blade_use()
-  bdashstaff_use()
+  bdash_use()
   ?foe.distance <= 15
     ?foe = puff & foe.distance < 5
       equipL mind
@@ -177,7 +178,7 @@ fire_summ()
 
 ?loc = mine & summon.count = 1
   blade_use()
-  bdashstaff_use()
+  bdash_use()
   ?foe.distance <= 23
     ?foe.GetCount(15) >= 3
       equipL ice wand +10
@@ -215,7 +216,7 @@ fire_summ()
 
 ?loc = ridge & summon.count = 1
   blade_use()
-  bdashstaff_use()
+  bdash_use()
   ?foe.distance <= 15
     ?foe = boss
       ?foe.armor > 0
