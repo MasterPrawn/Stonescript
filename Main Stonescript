@@ -47,7 +47,7 @@ func mask_use()
     activate R
  
 func blade_use()
-  ?foe.GetCount(40) > 5 &
+  ?foe.GetCount(40) > 5 & foe ! boss &
   ^item.GetCooldown("blade") <= 0
     equip blade
     activate R
