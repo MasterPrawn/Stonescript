@@ -147,7 +147,8 @@ AAC()
       equipL ice wand +10
       equipR ice wand +9
     :?foe = pallas
-      ?foe.state = 1 & foe.time = 60
+      ?foe.state = 32 & foe.time = 60
+      ^& foe = legless
         activate potion
       ?foe.distance <= 7
         bardiche_use()
