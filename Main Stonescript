@@ -122,8 +122,6 @@ func AAC()
 //==========================================//
 
 AAC()
-?hp <= 10
-  activate potion
 
 ?loc = rocky & summon.count = 1
   lootwalk()
@@ -144,6 +142,9 @@ AAC()
       equipL ice wand +10
       equipR ice wand +9
     :?foe = pallas
+      ?foe.state = 1 & foe.time = 50
+        brew wood + bronze
+        activate potion
       ?foe.distance <= 7
         bardiche_use()
         ?item.GetCooldown("bardiche") > 0
