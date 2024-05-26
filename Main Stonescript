@@ -183,9 +183,6 @@ AAC()
       equipR aether shield
     :?foe = bomb & foe.distance < 5
       equipL mind
-    :?foe = guardian 
-    ^& summon.GetId() = "voidweaver"
-      fire_summ()
     :?foe = boss
       ?foe.state = 33
         ?foe.distance < 25 & foe.distance > 10
@@ -243,3 +240,5 @@ aether_summ()
 bdashstaff_use()
 lootwalk()
 armor_regen()
+?foe = boss & summon.GetId() = "voidweaver"
+  fire_summ()
