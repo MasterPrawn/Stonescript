@@ -64,6 +64,11 @@ func aether_summ()
     equipR aether talisman
     activate R
 
+func fire_summ()
+  ?foe = boss & summon.GetId() = "voidweaver"
+    equip fire talisman
+    activate R
+
 func armor_regen()
   ?armor < 14 & foe.distance > 23
   ^& summon.count = 1
@@ -182,6 +187,11 @@ aether_summ()
           equipR aether sword +9
         :?foe.armor > 1 & foe.distance <= 7
           hammer_use()
+          ?item.GetCooldown("hammer") > 0
+          ^& item.GetCooldown("hammer") < 630
+          ^& foe.distance <= 7
+            equipL aether sword +10
+            equipR aether sword +9
         :
           bardiche_use()
           ?item.GetCooldown("bardiche") > 0
@@ -195,7 +205,7 @@ aether_summ()
         equip aether crossbow
     :
       equipL aether sword +10
-      equipR aether sword +9
+      equipR aether shield
   lootwalk()
   armor_regen()
 
