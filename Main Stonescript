@@ -184,8 +184,10 @@ AAC()
     :?foe = bomb & foe.distance < 5
       equipL mind
     :?foe = boss
-      fire_summ()
-      ?foe.state = 33
+      ?foe.state = 1
+      ^& summon.GetId() = "voidweaver"
+        fire_summ
+      :?foe.state = 33
         ?foe.distance < 25 & foe.distance > 10
           equipL aether sword +10
           equipR aether sword +9
