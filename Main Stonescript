@@ -177,7 +177,6 @@ AAC()
       equipR poison sword +10
 
 ?loc = mine & summon.count = 1
-  bdashstaff_use()
   ?foe.distance <= 23
     ?foe.GetCount(15) >= 3
       equipL ice wand +10
@@ -185,6 +184,7 @@ AAC()
     :?foe = bomb & foe.distance < 5
       equipL mind
     :?foe = boss
+      fire_summ()
       ?foe.state = 33
         ?foe.distance < 25 & foe.distance > 10
           equipL aether sword +10
