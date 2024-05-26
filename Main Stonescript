@@ -180,6 +180,7 @@ blade_use()
       equipR poison sword +10
 
 ?loc = mine & summon.count = 1
+  bdashstaff_use()
   ?foe.distance <= 23
     ?foe.GetCount(15) >= 3
       equipL ice wand +10
