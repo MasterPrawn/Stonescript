@@ -140,7 +140,7 @@ fire_summ()
   ?foe = pallas
     ?summon.GetId() = "voidweaver"
       fire_summ()
-    :
+    :?summon.GetId() = "cinderwisp"
       bardiche_use()
       ?item.GetCooldown("bardiche") > 0
       ^& item.GetCooldown("bardiche") < 870
