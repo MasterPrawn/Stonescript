@@ -137,10 +137,15 @@ fire_summ()
   armor_regen()
 
 ?loc = halls & summon.count = 1
-  ?foe.distance > 17
-    staff_use()
-    lootwalk()
-    armor_regen()
+  ?foe = pallas
+  ^& summon.GetId() = "voidweaver"
+    fire_summ()
+    ?summon.GetId() = "cinderwisp"
+      bardiche_use()
+      ?item.GetCooldown("bardiche") > 0
+      ^& item.GetCooldown("bardiche") < 870
+        equipL vigor sword +10
+        equipR vigor sword +9
   :?foe.distance < 17
     blade_use()
     bdash_use()
@@ -151,15 +156,10 @@ fire_summ()
     :
       equipL vigor sword +10
       equipR vigor sword +9
-  :?foe = pallas
-  ^& summon.GetId() = "voidweaver"
-    fire_summ()
-    ?summon.GetId() = "cinderwisp"
-      bardiche_use()
-      ?item.GetCooldown("bardiche") > 0
-      ^& item.GetCooldown("bardiche") < 870
-        equipL vigor sword +10
-        equipR vigor sword +9
+  :?foe.distance > 17
+    staff_use()
+    lootwalk()
+    armor_regen()
   :
     equipL vigor sword +10
     equipR vigor sword +9
