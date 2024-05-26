@@ -6,9 +6,13 @@
 >c-45,3,CD STATUS
 >c-45,4,BAR: @bar_cd@
 
-var bar_cd = @get_bar_cd@
+var bar_cd = @get_bar_cd()@
 
-func get_bar_cd
+func get_bar_cd()
+  ?item.GetCooldown("bardiche") <= 0
+    return RDY
+  :?item.GetCooldown("bardiche") > 0
+    return item.GetCooldown("bardiche") > 0
 
 // "dysangelos,xyloalgia,poena,bolesh,
 //  ^shroom,morel,enoki,pallas,guardian,hrimnir,
