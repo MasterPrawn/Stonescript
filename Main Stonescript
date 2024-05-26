@@ -236,8 +236,8 @@ AAC()
       equipL fire sword +10
       equipR fire shield
 
-blade_use()
 aether_summ()
 bdashstaff_use()
 lootwalk()
 armor_regen()
+blade_use()
