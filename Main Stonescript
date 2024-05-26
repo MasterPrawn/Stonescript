@@ -239,7 +239,6 @@ AAC()
       equipR fire shield
 
 blade_use()
-fire_summ()
 aether_summ()
 bdashstaff_use()
 lootwalk()
