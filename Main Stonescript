@@ -138,11 +138,12 @@ fire_summ()
 
 ?loc = halls & summon.count = 1
   ?foe.distance > 17
-    bdash_use()
+    staff_use()
     lootwalk()
     armor_regen()
   :?foe.distance < 17
     blade_use()
+    bdash_use()
     ?foe.GetCount(15) >= 3 | foe = ghost
       equipL ice wand +10
       equipR ice wand +9
