@@ -69,7 +69,7 @@ func aether_summ()
 
 func fire_summ()
   ?foe = boss & summon.GetId() = "voidweaver"
-  ^ & item.CanActivate()
+  ^& item.CanActivate()
   ^& item.GetCooldown("aether_talisman") <= 0
     equip fire talisman
     activate R
