@@ -1,6 +1,7 @@
 >c-45,-7,LVL TIMES
 >c-45,-6,BST: @loc.bestTime@
 >c-45,-5,AVG: @loc.averageTime@
+>c-45,-4,CUR: @time@,@totaltime@
 >c-45,-3,ENEMY INFO
 >c-45,-2,Name: @foe.name@
 >c-45,-1,Dist: @foe.distance@
