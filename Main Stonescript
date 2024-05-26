@@ -4,7 +4,8 @@
 ^,@foe.GetCount(15)@
 >c-45,0,S/T:  @foe.state@,@foe.time@
 >c-45,3,CD STATUS
->c-45,4,BAR: @item.GetCooldown("bardiche")@
+>c-45,4,BAR: @item.GetCooldown("bardiche")@, 
+^BFG: @item.GetCooldown("blade")@
 
 // "dysangelos,xyloalgia,poena,bolesh,
 //  ^shroom,morel,enoki,pallas,guardian,hrimnir,
@@ -141,16 +142,15 @@ fire_summ()
 
 ?loc = halls & summon.count = 1
   ?foe = pallas
+    bdash_use()
+    ?summon.GetId() = "voidweaver"
+      fire_summ()
     ?foe.distance <= 10
       bardiche_use()
       ?item.GetCooldown("bardiche") > 0
       ^& item.GetCooldown("bardiche") < 870
         equipL vigor sword +10
         equipR vigor sword +9
-    ?summon.GetId() = "voidweaver"
-      fire_summ()
-    ?foe.distance <= 16 & foe.distance >= 11
-      bdash_use()
     ?foe.GetCount(15) >= 3 | foe = ghost
     ^& foe.distance <= 15
       equipL ice wand +10
