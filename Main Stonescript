@@ -56,12 +56,10 @@ func bdashstaff_use()
   ?foe.distance <= 16 & foe.distance >= 11 & 
   ^item.GetCooldown("bash") <= 0
   ^& summon.count = 1
-    equipL triskelion
     equipR bashing shield
   ?foe.distance <= 16 & foe.distance >= 11 & 
   ^item.GetCooldown("dash") <= 0
   ^& summon.count = 1
-    equipL triskelion
     equipR dashing shield
   ?item.GetCooldown("quarterstaff") <= 0
   ^& item.CanActivate() & foe.distance > 6
