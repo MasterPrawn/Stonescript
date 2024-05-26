@@ -186,7 +186,7 @@ AAC()
     :?foe=boss & summon.GetId() = "voidweaver"
       fire_summ()
     :?foe = boss
-      :?foe.state = 33
+      ?foe.state = 33
         ?foe.distance < 25 & foe.distance > 10
           equipL aether sword +10
           equipR aether sword +9
