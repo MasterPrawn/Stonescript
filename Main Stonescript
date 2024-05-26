@@ -136,6 +136,7 @@ AAC()
     equipR vigor sword +9
 
 ?loc = halls & summon.count = 1
+  brew wood + bronze
   ?foe.distance < 17
     ?foe.GetCount(15) >= 3 | foe = ghost
     ^& foe.distance <= 15
@@ -143,7 +144,6 @@ AAC()
       equipR ice wand +9
     :?foe = pallas
       ?foe.state = 1 & foe.time = 50
-        brew wood + bronze
         activate potion
       ?foe.distance <= 7
         bardiche_use()
