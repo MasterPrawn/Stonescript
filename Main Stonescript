@@ -1,3 +1,6 @@
+>c-45,-7,LVL TIMES
+>c-45,-6,BST: @loc.bestTime@
+>c-45,-5,AVG: @loc.averageTime@
 >c-45,-3,ENEMY INFO
 >c-45,-2,Name: @foe.name@
 >c-45,-1,Dist: @foe.distance@
@@ -10,6 +13,8 @@
 ^DSH: @item.GetCooldown("dash")@
 >c-45,6,STF: @item.GetCooldown("quarterstaff")@
 ^,HAM: @item.GetCooldown("hammer")@
+>c-45,7,@buffs.count@
+>c-45,8,@buffs.string@
 
 // "dysangelos,xyloalgia,poena,bolesh,
 //  ^shroom,morel,enoki,pallas,guardian,hrimnir,
@@ -147,8 +152,7 @@ AAC()
       equipL ice wand +10
       equipR ice wand +9
     :?foe = pallas
-      ?foe.state = 32 & foe.time = 60
-      ^& foe = legless
+      ?foe.state = 2 & foe = legless
         activate potion
       ?foe.distance <= 7
         bardiche_use()
