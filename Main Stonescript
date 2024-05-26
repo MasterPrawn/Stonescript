@@ -122,12 +122,12 @@ func AAC()
 AAC()
 ?hp <= 10
   activate potion
-
 aether_summ()
 fire_summ()
+bdashstaff_use()
+blade_use()
 
 ?loc = rocky & summon.count = 1
-  bdashstaff_use()
   lootwalk()
   ?foe = ice
     equipL fire sword +10
@@ -142,9 +142,7 @@ fire_summ()
   armor_regen()
 
 ?loc = halls & summon.count = 1
-  bdashstaff_use()
   ?foe.distance < 17
-    blade_use()
     ?foe.GetCount(15) >= 3 | foe = ghost
     ^& foe.distance <= 15
       equipL ice wand +10
@@ -166,8 +164,6 @@ fire_summ()
     armor_regen()
 
 ?loc = forest & summon.count = 1
-  blade_use()
-  bdashstaff_use()
   ?foe.distance <= 15
     ?foe = puff & foe.distance < 5
       equipL mind
@@ -188,8 +184,6 @@ fire_summ()
   armor_regen()
 
 ?loc = mine & summon.count = 1
-  blade_use()
-  bdashstaff_use()
   ?foe.distance <= 23
     ?foe.GetCount(15) >= 3
       equipL ice wand +10
@@ -226,8 +220,6 @@ fire_summ()
   armor_regen()
 
 ?loc = ridge & summon.count = 1
-  blade_use()
-  bdashstaff_use()
   ?foe.distance <= 15
     ?foe = boss
       ?foe.armor > 0
