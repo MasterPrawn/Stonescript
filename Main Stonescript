@@ -147,13 +147,10 @@ fire_summ()
   ?foe.distance < 17
     blade_use()
     bdash_use()
-    ?foe.GetCount(15) >= 3 | foe = ghost
-    ^& foe.distance <= 15
-      equipL ice wand +10
-      equipR ice wand +9
-    :
-      equipL vigor sword +10
-      equipR vigor sword +9
+  ?foe.GetCount(15) >= 3 | foe = ghost
+  ^& foe.distance <= 15
+    equipL ice wand +10
+    equipR ice wand +9
   ?foe = pallas
     ?summon.GetId() = "voidweaver"
       fire_summ()
