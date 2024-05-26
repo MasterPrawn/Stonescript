@@ -25,7 +25,7 @@ func lootwalk()
     equipR ouroboros
 
 func bardiche_use()
-  ?foe.distance <= 10 & item.CanActivate()
+  ?foe.distance <= 5 & item.CanActivate()
   ^& item.GetCooldown("bardiche") <= 0
   ^| item.GetCooldown("bardiche") > 870
     equip bardiche
@@ -188,18 +188,18 @@ AAC()
         ?foe.distance < 25 & foe.distance > 10
           equipL aether sword +10
           equipR aether sword +9
-        :?foe.armor > 1 & foe.distance <= 7
+        :?foe.armor > 1 & foe.distance <= 6
           hammer_use()
           ?item.GetCooldown("hammer") > 0
           ^& item.GetCooldown("hammer") < 630
-          ^& foe.distance <= 7
+          ^& foe.distance <= 6
             equipL aether sword +10
             equipR aether sword +9
         :
           bardiche_use()
           ?item.GetCooldown("bardiche") > 0
           ^& item.GetCooldown("bardiche") < 870
-          ^& foe.distance <= 10
+          ^& foe.distance <= 5
             equipL aether sword +10
             equipR aether sword +9
       :?foe.state = 32 & foe.time = 25
