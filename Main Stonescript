@@ -6,6 +6,9 @@
 >c-45,3,CD STATUS
 >c-45,4,BAR: @item.GetCooldown("bardiche")@, 
 ^BFG: @item.GetCooldown("blade")@
+>c-45,5,BSH: @item.GetCooldown("bash")@, 
+^DSH: @item.GetCooldown("dash")@
+>c-45,6,STF: @item.GetCooldown("staff")@
 
 // "dysangelos,xyloalgia,poena,bolesh,
 //  ^shroom,morel,enoki,pallas,guardian,hrimnir,
@@ -141,13 +144,9 @@ fire_summ()
   armor_regen()
 
 ?loc = halls & summon.count = 1
-  ?foe = pallas
-    ?foe.distance <= 16 & foe.distance >= 11
-      bdash_use()
-    ?summon.GetId() = "voidweaver"
-      fire_summ()
-    ?item.GetCooldown("bardiche") <= 0
-      bardiche_use()
+  ?foe.distance < 17
+    blade_use()
+    bdash_use()
     ?foe.GetCount(15) >= 3 | foe = ghost
     ^& foe.distance <= 15
       equipL ice wand +10
@@ -155,9 +154,11 @@ fire_summ()
     :
       equipL vigor sword +10
       equipR vigor sword +9
-  :?foe.distance < 17
-    blade_use()
-    bdash_use()
+  :?foe = pallas
+    ?summon.GetId() = "voidweaver"
+      fire_summ()
+    ?item.GetCooldown("bardiche") <= 0
+      bardiche_use()
     ?foe.GetCount(15) >= 3 | foe = ghost
     ^& foe.distance <= 15
       equipL ice wand +10
