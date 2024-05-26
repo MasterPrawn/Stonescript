@@ -151,8 +151,6 @@ fire_summ()
   ?foe = pallas
     ?summon.GetId() = "voidweaver"
       fire_summ()
-    ?foe.distance <= 16 & foe.distance >= 11
-      bdash_use()
     ?foe.GetCount(15) >= 3 | foe = ghost
     ^& foe.distance <= 15
       equipL ice wand +10
@@ -163,6 +161,8 @@ fire_summ()
       ^& item.GetCooldown("bardiche") < 870
         equipL vigor sword +10
         equipR vigor sword +9
+    ?foe.distance <= 16 & foe.distance >= 11
+      bdash_use()
     :
       equipL vigor sword +10
       equipR vigor sword +9
