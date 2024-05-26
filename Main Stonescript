@@ -56,7 +56,7 @@ func bdash_use()
   ^item.GetCooldown("bash") <= 0
     equipL triskelion
     equipR bashing shield
-  :?foe.distance <= 16 & foe.distance >= 11 & 
+  ?foe.distance <= 16 & foe.distance >= 11 & 
   ^item.GetCooldown("dash") <= 0
     equipL triskelion
     equipR dashing shield
@@ -154,7 +154,7 @@ fire_summ()
     :
       equipL vigor sword +10
       equipR vigor sword +9
-  :?foe = pallas
+  ?foe = pallas
     ?summon.GetId() = "voidweaver"
       fire_summ()
     ?item.GetCooldown("bardiche") <= 0
