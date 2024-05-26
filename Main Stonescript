@@ -8,7 +8,7 @@
 ^BFG: @item.GetCooldown("blade")@
 >c-45,5,BSH: @item.GetCooldown("bash")@, 
 ^DSH: @item.GetCooldown("dash")@
->c-45,6,STF: @item.GetCooldown("staff")@
+>c-45,6,STF: @item.GetCooldown("quarterstaff")@
 
 // "dysangelos,xyloalgia,poena,bolesh,
 //  ^shroom,morel,enoki,pallas,guardian,hrimnir,
