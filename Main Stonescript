@@ -147,19 +147,19 @@ fire_summ()
   ?foe.distance < 17
     blade_use()
     bdash_use()
-  ?foe.GetCount(15) >= 3 | foe = ghost
-  ^& foe.distance <= 15
-    equipL ice wand +10
-    equipR ice wand +9
-  ?foe = pallas
-    ?summon.GetId() = "voidweaver"
-      fire_summ()
-    ?item.GetCooldown("bardiche") <= 0
-      bardiche_use()
     ?foe.GetCount(15) >= 3 | foe = ghost
     ^& foe.distance <= 15
       equipL ice wand +10
       equipR ice wand +9
+    :?foe = pallas
+      ?summon.GetId() = "voidweaver"
+        fire_summ()
+      ?item.GetCooldown("bardiche") <= 0
+        bardiche_use()
+      ?foe.GetCount(15) >= 3 | foe = ghost
+      ^& foe.distance <= 15
+        equipL ice wand +10
+        equipR ice wand +9
     :
       equipL vigor sword +10
       equipR vigor sword +9
@@ -167,9 +167,6 @@ fire_summ()
     staff_use()
     lootwalk()
     armor_regen()
-  :
-    equipL vigor sword +10
-    equipR vigor sword +9
 
 ?loc = forest & summon.count = 1
   blade_use()
