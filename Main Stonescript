@@ -19,7 +19,7 @@ func lootwalk()
   ?pickup.distance < 15 & summon.count = 1
     equipL triskelion
     equipR star
-  ?foe.distance > 23 & armor = 23
+  ?foe.distance > 23 & armor = 24
   ^& summon.count = 1
     equipL triskelion
     equipR ouroboros
@@ -138,8 +138,6 @@ blade_use()
   :
     equipL vigor sword +10
     equipR vigor sword +9
-  lootwalk()
-  armor_regen()
 
 ?loc = halls & summon.count = 1
   ?foe.distance < 17
@@ -159,9 +157,6 @@ blade_use()
     :
       equipL vigor sword +10
       equipR vigor sword +9
-  :?foe.distance > 17
-    lootwalk()
-    armor_regen()
 
 ?loc = forest & summon.count = 1
   ?foe.distance <= 15
@@ -180,8 +175,6 @@ blade_use()
     :
       equipL vigor sword +10
       equipR poison sword +10
-  lootwalk()
-  armor_regen()
 
 ?loc = mine & summon.count = 1
   ?foe.distance <= 23
@@ -216,8 +209,6 @@ blade_use()
     :
       equipL aether sword +10
       equipR aether shield
-  lootwalk()
-  armor_regen()
 
 ?loc = ridge & summon.count = 1
   ?foe.distance <= 15
@@ -243,5 +234,6 @@ blade_use()
     :
       equipL fire sword +10
       equipR fire shield
-  lootwalk()
-  armor_regen()
+
+lootwalk()
+armor_regen()
