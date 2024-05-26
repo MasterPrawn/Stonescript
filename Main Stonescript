@@ -3,6 +3,11 @@
 >c-45,-1,Dist: @foe.distance@
 ^,@foe.GetCount(15)@
 >c-45,0,S/T:  @foe.state@,@foe.time@
+>c-45,3,CD STATUS
+>c-45,4,HAM: @
+
+var hamcd
+
 // "dysangelos,xyloalgia,poena,bolesh,
 //  ^shroom,morel,enoki,pallas,guardian,hrimnir,
 //  ^nagaraja"
@@ -140,21 +145,21 @@ fire_summ()
   ?foe = pallas
     ?summon.GetId() = "voidweaver"
       fire_summ()
-    :?foe.distance < 17
+    :?foe.distance <= 16
       bdash_use()
       ?foe.GetCount(15) >= 3 | foe = ghost
       ^& foe.distance <= 15
         equipL ice wand +10
         equipR ice wand +9
-      :
-        equipL vigor sword +10
-        equipR vigor sword +9
     :?foe.distance <= 10
       bardiche_use()
       ?item.GetCooldown("bardiche") > 0
       ^& item.GetCooldown("bardiche") < 870
         equipL vigor sword +10
         equipR vigor sword +9
+    :
+      equipL vigor sword +10
+      equipR vigor sword +9
   :?foe.distance < 17
     blade_use()
     bdash_use()
