@@ -3,7 +3,9 @@
 >c-45,-1,Dist: @foe.distance@
 ^,@foe.GetCount(15)@
 >c-45,0,S/T: @foe.state@,@foe.time@
-
+// "dysangelos,xyloalgia,poena,bolesh,
+//  ^shroom,morel,enoki,pallas,guardian,hrimnir,
+//  ^nagaraja"
 //==========================================//
 
 func lootwalk()
@@ -144,12 +146,15 @@ fire_summ()
     ?foe.GetCount(15) >= 3 | foe = ghost
       equipL ice wand +10
       equipR ice wand +9
-  :?foe = boss & summon.GetId() = "cinderwisp"
-    bardiche_use()
-    ?item.GetCooldown("bardiche") > 0
-    ^& item.GetCooldown("bardiche") < 870
-      equipL vigor sword +10
-      equipR vigor sword +9
+  :?foe = pallas
+  ^& summon.GetId() = "voidweaver"
+    fire_summ()
+    ?summon.GetId() = "cinderwishp"
+      bardiche_use()
+      ?item.GetCooldown("bardiche") > 0
+      ^& item.GetCooldown("bardiche") < 870
+        equipL vigor sword +10
+        equipR vigor sword +9
   :
     equipL vigor sword +10
     equipR vigor sword +9
