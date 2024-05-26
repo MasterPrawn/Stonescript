@@ -120,7 +120,8 @@ func AAC()
       equipL @leftItem@
 
 //==========================================//
-
+?foe = boss & summon.GetId() = "voidweaver"
+  fire_summ()
 AAC()
 ?hp <= 10
   activate potion
@@ -238,5 +239,3 @@ aether_summ()
 bdashstaff_use()
 lootwalk()
 armor_regen()
-?foe = boss & summon.GetId() = "voidweaver"
-  fire_summ()
