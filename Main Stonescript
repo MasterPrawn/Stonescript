@@ -114,6 +114,7 @@ AAC()
   activate potion
 
 aether_summ()
+fire_summ()
 
 ?loc = rocky & summon.count = 1
   bdashstaff_use()
