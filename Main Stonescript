@@ -146,6 +146,9 @@ fire_summ()
     ?foe.GetCount(15) >= 3 | foe = ghost
       equipL ice wand +10
       equipR ice wand +9
+    :
+      equipL vigor sword +10
+      equipR vigor sword +9
   :?foe = pallas
   ^& summon.GetId() = "voidweaver"
     fire_summ()
