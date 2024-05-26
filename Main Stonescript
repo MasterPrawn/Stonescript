@@ -6,14 +6,6 @@
 >c-45,3,CD STATUS
 >c-45,4,BAR: @item.GetCooldown("bardiche")@
 
-var bar_cd = @get_bar_cd()@
-
-func get_bar_cd()
-  ?item.GetCooldown("bardiche") <= 0
-    return RDY
-  :?item.GetCooldown("bardiche") > 0
-    return item.GetCooldown("bardiche") > 0
-
 // "dysangelos,xyloalgia,poena,bolesh,
 //  ^shroom,morel,enoki,pallas,guardian,hrimnir,
 //  ^nagaraja"
@@ -149,20 +141,20 @@ fire_summ()
 
 ?loc = halls & summon.count = 1
   ?foe = pallas
-    ?summon.GetId() = "voidweaver"
-      fire_summ()
-    ?foe.GetCount(15) >= 3 | foe = ghost
-    ^& foe.distance <= 15
-      equipL ice wand +10
-      equipR ice wand +9
     ?foe.distance <= 10
       bardiche_use()
       ?item.GetCooldown("bardiche") > 0
       ^& item.GetCooldown("bardiche") < 870
         equipL vigor sword +10
         equipR vigor sword +9
+    ?summon.GetId() = "voidweaver"
+      fire_summ()
     ?foe.distance <= 16 & foe.distance >= 11
       bdash_use()
+    ?foe.GetCount(15) >= 3 | foe = ghost
+    ^& foe.distance <= 15
+      equipL ice wand +10
+      equipR ice wand +9
     :
       equipL vigor sword +10
       equipR vigor sword +9
