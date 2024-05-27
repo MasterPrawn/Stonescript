@@ -10,7 +10,7 @@
 >c-45,3,== CD STATUS ==
 >c-45,4,BFG: @item.GetCooldown("blade")@
 ^,BAR: @item.GetCooldown("bardiche")@
->c-45,5,STF: HAM: @item.GetCooldown("hammer")@
+>c-45,5,HAM: @item.GetCooldown("hammer")@
 ^,STF: @item.GetCooldown("quarterstaff")@
 >c-45,6,BSH: @item.GetCooldown("bash")@
 ^,DSH: @item.GetCooldown("dash")@
