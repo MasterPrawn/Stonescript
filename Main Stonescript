@@ -205,19 +205,20 @@ AAC()
           equipR aether sword +9
         ?foe.armor > 1 & foe.distance <= 6
           hammer_use()
-          ?item.GetCooldown("hammer") > 0
+          ?item.GetCooldown("hammer") > 30
           ^& item.GetCooldown("hammer") < 630
           ^& foe.distance <= 6
             equipL aether sword +10
             equipR aether sword +9
         ?foe.distance <= 7
+        ^& item.GetCooldown("hammer") > 0
           bardiche_use()
           ?item.GetCooldown("bardiche") > 0
           ^& item.GetCooldown("bardiche") < 870
           ^& foe.distance <= 5
             equipL aether sword +10
             equipR aether sword +9
-        ?foe.time = 190
+        ?foe.time = 230
           equip aether crossbow
       :?foe.state = 32 & foe.time = 25
         equipL mind
