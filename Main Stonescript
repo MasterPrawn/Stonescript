@@ -219,10 +219,10 @@ AAC()
           ^& foe.distance <= 6
             equipL aether sword +10
             equipR aether sword +9
-        ?foe.time = 230
-          equip aether crossbow
       :?foe.state = 32 & foe.time = 25
         equipL mind
+      :?foe.state = 32 & foe.time = 200
+          equip aether crossbow
       :
         equip aether crossbow
     :
