@@ -6,7 +6,7 @@
 >c-45,-1,Name: @foe.name@
 >c-45,0,Dist: @foe.distance@
 ^,@foe.GetCount(15)@
->c-45,-1,S/T:  @foe.state@,@foe.time@
+>c-45,1,S/T:  @foe.state@,@foe.time@
 >c-45,3,== CD STATUS ==
 >c-45,4,BFG: @item.GetCooldown("blade")@
 ^,BAR: @item.GetCooldown("bardiche")@
@@ -15,8 +15,8 @@
 >c-45,6,BSH: @item.GetCooldown("bash")@
 ^,DSH: @item.GetCooldown("dash")@
 
->c-45,9,@buffs.count@
->c-45,10,@buffs.string@
+>c-45,10,@buffs.count@
+>c-45,11,@buffs.string@
 
 // "dysangelos,xyloalgia,poena,bolesh,
 //  ^shroom,morel,enoki,pallas,guardian,hrimnir,
