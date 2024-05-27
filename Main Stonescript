@@ -222,7 +222,7 @@ AAC()
       :?foe.state = 32 & foe.time = 25
         equipL mind
       :?foe.state = 32 & foe.time = 200
-          equip aether crossbow
+        equip aether crossbow
       :
         equip aether crossbow
     :
