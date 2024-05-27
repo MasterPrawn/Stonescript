@@ -196,7 +196,9 @@ AAC()
       equipR aether shield
     :?foe = bomb & foe.distance < 5
       equipL mind
-    :?foe = boss
+    :?foe = guardian
+      ?foe.state = 2
+        activate potion
       ?foe.state = 33
         ?foe.distance < 25 & foe.distance > 10
           equipL aether sword +10
