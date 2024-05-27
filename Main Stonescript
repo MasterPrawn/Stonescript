@@ -213,8 +213,6 @@ AAC()
             equipL aether sword +10
             equipR aether sword +9
         ?foe.distance <= 10
-        ^& item.GetCooldown("hammer") > 0
-        ^& item.GetCooldown("hammer") < 630
           bardiche_use()
           ?item.GetCooldown("bardiche") > 0
           ^& item.GetCooldown("bardiche") < 870
