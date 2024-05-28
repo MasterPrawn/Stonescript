@@ -71,7 +71,7 @@ func bdashstaff_use()
     equipR dashing shield
   ?item.GetCooldown("quarterstaff") <= 0
   ^& item.CanActivate() & foe.distance > 6
-  ^& summon.count = 1
+  ^& summon.count = 1 & foe ! boss
     equip quarterstaff
     activate R
 
