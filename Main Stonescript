@@ -191,13 +191,12 @@ AAC()
       equipR poison sword +10
 
 ?loc = mine & summon.count = 1
-  ?foe.distance <= 23
-    ?foe.GetCount(15) >= 3
-      equipL ice wand +10
-      equipR aether shield
-    :?foe = bomb & foe.distance < 5
-      equipL mind
-  ?foe = guardian
+  ?foe.GetCount(15) >= 3
+    equipL ice wand +10
+    equipR aether shield
+  :?foe = bomb & foe.distance < 5
+    equipL mind
+  :?foe = guardian
     ?foe.state = 2
       activate potion
     ?foe.state = 33
