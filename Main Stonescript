@@ -195,15 +195,15 @@ AAC()
       activate potion
       equip aether crossbow
     :?foe.state = 33
-      ?foe.distance < 25 & foe.distance > 10
-      ^& foe.armor > 1
-        equipL aether sword +10
-        equipR aether hammer +10
       ?foe.distance <= 7
         bardiche_use()
       ?foe.armor > 1 & foe.distance <= 6
       ^& item.GetCooldown("bardiche") > 0
         hammer_use()
+      ?foe.distance < 25 & foe.distance > 10
+      ^& foe.armor > 1
+        equipL aether sword +10
+        equipR aether hammer +10
     :?foe.state = 32 & foe.time = 25
       equipL mind
     :
