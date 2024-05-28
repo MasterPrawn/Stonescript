@@ -199,24 +199,25 @@ AAC()
   :?foe = guardian
     ?foe.state = 2
       activate potion
-    ?foe.state = 33
+    :?foe.state = 33
       ?foe.distance < 25 & foe.distance > 10
       ^& foe.armor > 1
         equipL aether sword +10
         equipR aether hammer +10
-      ?foe.armor > 1 & foe.distance <= 6
-        hammer_use()
-        ?item.GetCooldown("hammer") > 0
-        ^& item.GetCooldown("hammer") < 630
-        ^& foe.distance <= 6
-        ^& foe.armor > 1
-          equipL aether sword +10
-          equipR aether hammer +10
-      ?foe.distance <= 7
+      :?foe.distance <= 7
         bardiche_use()
         ?item.GetCooldown("bardiche") > 0
         ^& item.GetCooldown("bardiche") < 870
         ^& foe.distance <= 7
+        ^& foe.armor > 1
+          equipL aether sword +10
+          equipR aether hammer +10
+      :?foe.armor > 1 & foe.distance <= 6
+      ^& item.GetCooldown("bardiche") > 0
+        hammer_use()
+        ?item.GetCooldown("hammer") > 0
+        ^& item.GetCooldown("hammer") < 630
+        ^& foe.distance <= 6
         ^& foe.armor > 1
           equipL aether sword +10
           equipR aether hammer +10
