@@ -212,6 +212,9 @@ AAC()
         ^& foe.armor > 1
           equipL aether sword +10
           equipR aether hammer +10
+        :
+          equipL aether sword +10
+          equipR aether sword +9
       :?foe.armor > 1 & foe.distance <= 6
       ^& item.GetCooldown("bardiche") > 0
         hammer_use()
@@ -221,6 +224,9 @@ AAC()
         ^& foe.armor > 1
           equipL aether sword +10
           equipR aether hammer +10
+        :
+          equipL aether sword +10
+          equipR aether sword +9
     :?foe.state = 32 & foe.time = 25
       equipL mind
     :?foe.state = 32 & foe.time = 200
