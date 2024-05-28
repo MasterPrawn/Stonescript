@@ -199,6 +199,7 @@ AAC()
         bardiche_use()
       ?foe.armor > 1 & foe.distance <= 6
       ^& item.GetCooldown("bardiche") > 0
+      ^& item.GetCooldown("bardiche") < 870
         hammer_use()
       ?foe.distance < 25 & foe.distance > 10
       ^& foe.armor > 1
