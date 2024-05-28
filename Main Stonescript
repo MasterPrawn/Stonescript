@@ -191,7 +191,8 @@ AAC()
       equipR poison sword +10
 
 ?loc = mine & summon.count = 1
-  ?foe.GetCount(15) >= 3
+  ?foe.distance < 17
+  ^& foe.GetCount(15) >= 3
     equipL ice wand +10
     equipR aether shield
   ?foe = bomb & foe.distance < 5
