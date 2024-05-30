@@ -255,8 +255,9 @@ AAC()
     ^& foe.distance <= 10
       equipL vigor sword +10
       equipR vigor sword +9
-    ?foe.state = 32 & foe.time = 25
-      equip mind
+  :?foe.state = 32 & foe.time = 25
+  ^foe = xyloalgia
+    equip mind
   :
     equipL vigor sword +10
     equipR vigor sword +9
