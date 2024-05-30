@@ -251,6 +251,9 @@ AAC()
       ^& foe.distance <= 10
         equipL vigor sword +10
         equipR vigor sword +9
+      :
+        equipL vigor sword +10
+        equipR vigor sword +9
     :?foe.state = 32 & foe.time = 25
       equipL mind
   :?foe = poena
