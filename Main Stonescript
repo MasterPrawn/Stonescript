@@ -135,59 +135,30 @@ func AAC()
 
 AAC()
 
-?loc = rocky & summon.count = 1
-  lootwalk()
-  ?foe = ice
-    equipL fire sword +10
-    equipR fire sword +9
-  :?foe = fire
-    equipL aether sword +10
-    equipR aether sword +9
-  :
-    equipL vigor sword +10
-    equipR vigor sword +9
-
-?loc = halls & summon.count = 1
-  ?foe.distance < 17
-    ?foe.GetCount(15) >= 3 | foe = ghost
-    ^& foe.distance <= 15
-      equipL ice wand +10
-      equipR ice wand +9
-    :?foe = pallas
-      ?foe.state = 2 & foe = legless
-        activate potion
-      ?foe.distance <= 7
+?loc = ridge & summon.count = 1
+  ?foe.distance <= 15
+    ?foe = boss
+      ?foe.armor > 0
+        equipL fire sword +10
+        equipR fire sword +9
+      :?foe.distance = 3
+        equip shovel
+      :?foe.distance < 3
         bardiche_use()
         ?item.GetCooldown("bardiche") > 0
         ^& item.GetCooldown("bardiche") < 870
-        ^& foe.distance <= 7
-          equipL vigor sword +10
-          equipR vigor sword +9
-      ?foe.GetCount(15) >= 3 | foe = ghost
-      ^& foe.distance <= 15
-        equipL ice wand +10
-        equipR ice wand +9
-    :
-      equipL vigor sword +10
-      equipR vigor sword +9
-
-?loc = forest & summon.count = 1
-  ?foe.distance <= 15
-    ?foe = puff & foe.distance < 5
-      equipL mind
-    :?foe = boss
-      bardiche_use()
-      ?item.GetCooldown("bardiche") > 0
-      ^& item.GetCooldown("bardiche") < 870
-      ^& foe.distance <= 10
-        equipL vigor sword +10
-        equipR poison sword +10
+        ^& foe.distance <= 10
+          equipL fire sword +10
+          equipR fire sword +9
     :?foe.GetCount(15) >= 3
-      equipL ice wand +10
-      equipR ice wand +9
+      equipL ice wand
+      equipR fire shield
+    :?foe = ice wall | foe = ice pillar
+      equipL fire sword +10
+      equipR fire sword +9
     :
-      equipL vigor sword +10
-      equipR poison sword +10
+      equipL fire sword +10
+      equipR fire shield
 
 ?loc = mine & summon.count = 1
   ?foe = guardian
@@ -237,30 +208,77 @@ AAC()
     equipL aether sword +10
     equipR aether shield
 
-?loc = ridge & summon.count = 1
-  ?foe.distance <= 15
-    ?foe = boss
-      ?foe.armor > 0
-        equipL fire sword +10
-        equipR fire sword +9
-      :?foe.distance = 3
-        equip shovel
-      :?foe.distance < 3
+?loc = halls & summon.count = 1
+  ?foe.distance < 17
+    ?foe.GetCount(15) >= 3 | foe = ghost
+    ^& foe.distance <= 15
+      equipL ice wand +10
+      equipR ice wand +9
+    :?foe = pallas
+      ?foe.state = 2 & foe = legless
+        activate potion
+      ?foe.distance <= 7
         bardiche_use()
         ?item.GetCooldown("bardiche") > 0
         ^& item.GetCooldown("bardiche") < 870
-        ^& foe.distance <= 10
-          equipL fire sword +10
-          equipR fire sword +9
-    :?foe.GetCount(15) >= 3
-      equipL ice wand
-      equipR fire shield
-    :?foe = ice wall | foe = ice pillar
-      equipL fire sword +10
-      equipR fire sword +9
+        ^& foe.distance <= 7
+          equipL vigor sword +10
+          equipR vigor sword +9
+      ?foe.GetCount(15) >= 3 | foe = ghost
+      ^& foe.distance <= 15
+        equipL ice wand +10
+        equipR ice wand +9
     :
-      equipL fire sword +10
-      equipR fire shield
+      equipL vigor sword +10
+      equipR vigor sword +9
+
+?loc = forest & summon.count = 1
+  ?foe.distance <= 15
+    ?foe = puff & foe.distance < 5
+      equipL mind
+    :?foe = boss
+      bardiche_use()
+      ?item.GetCooldown("bardiche") > 0
+      ^& item.GetCooldown("bardiche") < 870
+      ^& foe.distance <= 10
+        equipL vigor sword +10
+        equipR poison sword +10
+    :?foe.GetCount(15) >= 3
+      equipL ice wand +10
+      equipR ice wand +9
+    :
+      equipL vigor sword +10
+      equipR poison sword +10
+
+?loc = canyon & summon.count = 1
+  ?foe.distance <= 15
+    equipL vigor sword +10
+    equipR vigor sword +9
+    ?foe.GetCount(15) >= 3
+      equipL ice wand +10
+      equipR ice wand +9
+  :?foe = boss
+    bardiche_use()
+    ?item.GetCooldown("bardiche") > 0
+    ^& item.GetCooldown("bardiche") < 870
+    ^& foe.distance <= 10
+      equipL vigor sword +10
+      equipR vigor sword +9
+  :
+    equipL vigor sword +10
+    equipR vigor sword +9
+
+?loc = rocky & summon.count = 1
+  lootwalk()
+  ?foe = ice
+    equipL fire sword +10
+    equipR fire sword +9
+  :?foe = fire
+    equipL aether sword +10
+    equipR aether sword +9
+  :
+    equipL vigor sword +10
+    equipR vigor sword +9
 
 aether_summ()
 bdashstaff_use()
