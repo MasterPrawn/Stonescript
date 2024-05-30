@@ -83,11 +83,11 @@ func aether_summ()
     activate R
 
 func fire_summ()
-  ?foe = boss & summon.GetId() = "voidweaver"
-  ^& item.CanActivate()
+  ?summon.count = 0 & item.CanActivate()
   ^& item.GetCooldown("fire_talisman") <= 0
-    equipL fire talisman
-    activate L
+    equipL triskelion
+    equipR fire talisman
+    activate R
 
 func armor_regen()
   ?armor < 14 & foe.distance > 23
@@ -129,9 +129,10 @@ func AAC()
 
 //==========================================//
 
-?loc.begin | loc.loop
-  ?loc = halls
-    brew wood + bronze
+?loc = canyon
+  fire.summ()
+:
+  aether_summ()
 
 AAC()
 
@@ -280,7 +281,6 @@ AAC()
     equipL vigor sword +10
     equipR vigor sword +9
 
-aether_summ()
 bdashstaff_use()
 lootwalk()
 armor_regen()
