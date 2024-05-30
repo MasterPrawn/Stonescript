@@ -248,13 +248,15 @@ AAC()
     equipR vigor sword +9
     ?foe.GetCount(15) >= 3
       equip skeleton arm
-  :?foe = boss
+  :?foe = xyloalgia
     bardiche_use()
     ?item.GetCooldown("bardiche") > 0
     ^& item.GetCooldown("bardiche") < 870
     ^& foe.distance <= 10
       equipL vigor sword +10
       equipR vigor sword +9
+    ?foe.state = 32 & foe.time = 25
+      equip mind
   :
     equipL vigor sword +10
     equipR vigor sword +9
