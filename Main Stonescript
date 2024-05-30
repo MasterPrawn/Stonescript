@@ -244,14 +244,15 @@ AAC()
 
 ?loc = canyon
   ?foe = xyloalgia
-    bardiche_use()
-    ?item.GetCooldown("bardiche") > 0
-    ^& item.GetCooldown("bardiche") < 870
-    ^& foe.distance <= 10
-      equipL vigor sword +10
-      equipR vigor sword +9
-  :?foe.state = 32 & foe.time = 25
-    equipL mind
+    ?foe.state = 2
+      bardiche_use()
+      ?item.GetCooldown("bardiche") > 0
+      ^& item.GetCooldown("bardiche") < 870
+      ^& foe.distance <= 10
+        equipL vigor sword +10
+        equipR vigor sword +9
+    :?foe.state = 32 & foe.time = 25
+      equipL mind
   :?foe = poena
     equipL aether hammer +10
     equipR aether hammer +9
