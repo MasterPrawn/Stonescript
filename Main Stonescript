@@ -246,7 +246,7 @@ AAC()
       equipL vigor sword +10
       equipR poison sword +10
 
-?loc = canyon & summon.count = 1
+?loc = canyon
   ?foe.distance <= 15
     equipL vigor sword +10
     equipR vigor sword +9
