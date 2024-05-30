@@ -15,8 +15,8 @@
 >c-45,6,BSH: @item.GetCooldown("bash")@
 ^,DSH: @item.GetCooldown("dash")@
 
->c-45,10,@buffs.count@
->c-45,11,@buffs.string@
+>c-45,10,BUFFS:   @buffs.string@
+>c-45,11,DEBUFFS: @debuffs.string@
 
 // "dysangelos,xyloalgia,poena,bolesh,
 //  ^shroom,morel,enoki,pallas,guardian,hrimnir,
