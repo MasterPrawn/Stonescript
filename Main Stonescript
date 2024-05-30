@@ -275,13 +275,13 @@ AAC()
   ?foe = ice
     equipL fire sword +10
     equipR fire sword +9
-  :?foe = fire
+  ?foe = fire
     equipL aether sword +10
     equipR aether sword +9
-  :?foe = poison
+  ?foe = poison
     equipL ice wand +10
     equipR ice wand +9
-  :?foe = vigor
+  ?foe = vigor
     equip poison sword +10
     equip poison wand +10
   :
