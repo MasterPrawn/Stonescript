@@ -272,7 +272,6 @@ AAC()
     equipR vigor sword +9
 
 ?loc = rocky & summon.count = 1
-  lootwalk()
   ?foe = ice
     equipL fire sword +10
     equipR fire sword +9
@@ -289,7 +288,7 @@ AAC()
     equipL vigor sword +10
     equipR vigor sword +9
 
-?loc ! canyon
+?loc ! "canyon"
   aether_summ()
 
 bdashstaff_use()
