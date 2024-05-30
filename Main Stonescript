@@ -24,11 +24,10 @@
 //==========================================//
 
 func lootwalk()
-  ?pickup.distance < 15 & summon.count = 1
+  ?pickup.distance < 15
     equipL triskelion
     equipR star
   ?foe.distance > 23 & armor > 24
-  ^& summon.count = 1
     equipL triskelion
     equipR ouroboros
 
@@ -63,15 +62,13 @@ func blade_use()
 func bdashstaff_use()
   ?foe.distance <= 16 & foe.distance >= 11 & 
   ^item.GetCooldown("bash") <= 0
-  ^& summon.count = 1
     equipR bashing shield
   ?foe.distance <= 16 & foe.distance >= 11 & 
   ^item.GetCooldown("dash") <= 0
-  ^& summon.count = 1
     equipR dashing shield
   ?item.GetCooldown("quarterstaff") <= 0
   ^& item.CanActivate() & foe.distance > 6
-  ^& summon.count = 1 & foe ! boss
+  ^& foe ! boss
     equip quarterstaff
     activate R
 
@@ -91,14 +88,13 @@ func fire_summ()
 
 func armor_regen()
   ?armor < 14 & foe.distance > 23
-  ^& summon.count = 1
-    equipL triskelion 
+    equipL triskelion
     equipR compound shield +12
   ?armor <= 24 & armor >= 14
-  ^& foe.distance > 23 & summon.count = 1
+  ^& foe.distance > 23
     equipL triskelion
     equipR compound shield +11
-  ?pickup.distance < 15 & summon.count = 1
+  ?pickup.distance < 15
     equipL star
     equipR compound shield +12
 
