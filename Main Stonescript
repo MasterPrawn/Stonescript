@@ -93,14 +93,14 @@ func armor_regen()
   ?armor < 14 & foe.distance > 23
   ^& summon.count = 1
     equipL triskelion 
-    equipR compound shield +11
+    equipR compound shield +12
   ?armor <= 24 & armor >= 14
   ^& foe.distance > 23 & summon.count = 1
     equipL triskelion
-    equipR compound shield +10
+    equipR compound shield +11
   ?pickup.distance < 15 & summon.count = 1
     equipL star
-    equipR compound shield +11
+    equipR compound shield +12
 
 //==========================================//
 
