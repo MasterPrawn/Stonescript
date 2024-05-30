@@ -244,7 +244,10 @@ AAC()
 
 ?loc = canyon
   ?foe.distance <= 15
-    equip skeleton arm
+    equipL vigor sword +10
+    equipR vigor sword +9
+    ?foe.GetCount(15) >= 3
+      equip skeleton arm
   :?foe = boss
     bardiche_use()
     ?item.GetCooldown("bardiche") > 0
