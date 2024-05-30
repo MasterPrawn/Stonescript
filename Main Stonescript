@@ -269,18 +269,41 @@ AAC()
     equipR vigor sword +9
 
 ?loc = rocky & summon.count = 1
+  ?foe = acronian
+    bardiche_use()
+      ?item.GetCooldown("bardiche") > 0
+      ^& item.GetCooldown("bardiche") < 870
+      ^& foe.distance <= 10
+        equipL vigor sword +10
+        equipR vigor sword +9
   ?foe = ice
-    equipL fire sword +10
-    equipR fire sword +9
+    bardiche_use()
+      ?item.GetCooldown("bardiche") > 0
+      ^& item.GetCooldown("bardiche") < 870
+      ^& foe.distance <= 10
+        equipL fire sword +10
+        equipR fire sword +9
   ?foe = fire
-    equipL aether sword +10
-    equipR aether sword +9
+    bardiche_use()
+      ?item.GetCooldown("bardiche") > 0
+      ^& item.GetCooldown("bardiche") < 870
+      ^& foe.distance <= 10
+        equipL aether sword +10
+        equipR aether sword +9
   ?foe = poison
-    equipL ice wand +10
-    equipR ice wand +9
+    bardiche_use()
+      ?item.GetCooldown("bardiche") > 0
+      ^& item.GetCooldown("bardiche") < 870
+      ^& foe.distance <= 10
+        equipL ice wand +10
+        equipR ice wand +9
   ?foe = vigor
-    equip poison sword +10
-    equip poison wand +10
+    bardiche_use()
+      ?item.GetCooldown("bardiche") > 0
+      ^& item.GetCooldown("bardiche") < 870
+      ^& foe.distance <= 10
+        equipL poison sword +10
+        equipR poison wand +10
   :
     equipL vigor sword +10
     equipR vigor sword +9
