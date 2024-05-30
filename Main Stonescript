@@ -288,7 +288,9 @@ AAC()
     equipL vigor sword +10
     equipR vigor sword +9
 
-?loc ! "canyon"
+?loc = canyon | loc = rocky
+  fire_summ()
+:
   aether_summ()
 
 bdashstaff_use()
