@@ -245,13 +245,16 @@ AAC()
 ?loc = canyon
   ?foe = xyloalgia
     ?foe.state = 32 & foe.time = 25
-      equip mind
+      equipL mind
     bardiche_use()
     ?item.GetCooldown("bardiche") > 0
     ^& item.GetCooldown("bardiche") < 870
     ^& foe.distance <= 10
       equipL vigor sword +10
       equipR vigor sword +9
+  :?foe = poena
+    equipL aether hammer +10
+    equipR aether hammer +9
   :?foe = wasp & foe.distance <= 15
     equipL ice wand +10
     equipR ice wand +9
