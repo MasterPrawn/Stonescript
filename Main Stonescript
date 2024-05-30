@@ -254,7 +254,7 @@ AAC()
       :
         equipL vigor sword +10
         equipR vigor sword +9
-    :?foe.state = 32 & foe.time = 25
+    :?foe.state = 32 & foe.time = 30
       equipL mind
   :?foe = poena
     equipL aether hammer +10
