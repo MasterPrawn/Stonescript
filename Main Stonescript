@@ -276,9 +276,7 @@ AAC()
     equipL vigor sword +10
     equipR vigor sword +9
 
-?loc = canyon
-  fire_summ()
-:
+?loc ! canyon
   aether_summ()
 
 bdashstaff_use()
