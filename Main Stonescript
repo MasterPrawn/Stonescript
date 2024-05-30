@@ -243,21 +243,23 @@ AAC()
       equipR poison sword +10
 
 ?loc = canyon
-  ?foe.distance <= 15
-    equipL vigor sword +10
-    equipR vigor sword +9
-    ?foe.GetCount(15) >= 3
-      equip skeleton arm
-  :?foe = xyloalgia
+  ?foe = xyloalgia
+    ?foe.state = 32 & foe.time = 25
+      equip mind
     bardiche_use()
     ?item.GetCooldown("bardiche") > 0
     ^& item.GetCooldown("bardiche") < 870
     ^& foe.distance <= 10
       equipL vigor sword +10
       equipR vigor sword +9
-  :?foe.state = 32 & foe.time = 25
-  ^foe = xyloalgia
-    equip mind
+  :?foe = wasp & foe.distance <= 15
+    equipL ice wand +10
+    equipR ice wand +9
+  :?foe.distance <= 15
+    equipL vigor sword +10
+    equipR vigor sword +9
+    ?foe.GetCount(15) >= 3
+      equip skeleton arm
   :
     equipL vigor sword +10
     equipR vigor sword +9
