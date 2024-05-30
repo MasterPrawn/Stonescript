@@ -130,7 +130,7 @@ func AAC()
 //==========================================//
 
 ?loc = canyon
-  fire.summ()
+  fire_summ()
 :
   aether_summ()
 
