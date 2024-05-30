@@ -244,7 +244,7 @@ AAC()
 
 ?loc = canyon
   ?foe = xyloalgia
-    ?foe.state = 2
+    ?foe.state ! 32
       bardiche_use()
       ?item.GetCooldown("bardiche") > 0
       ^& item.GetCooldown("bardiche") < 870
