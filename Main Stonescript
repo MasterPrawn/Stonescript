@@ -129,11 +129,6 @@ func AAC()
 
 //==========================================//
 
-?loc = canyon
-  fire_summ()
-:
-  aether_summ()
-
 AAC()
 
 ?loc = ridge & summon.count = 1
@@ -280,6 +275,11 @@ AAC()
   :
     equipL vigor sword +10
     equipR vigor sword +9
+
+?loc = canyon
+  fire_summ()
+:
+  aether_summ()
 
 bdashstaff_use()
 lootwalk()
