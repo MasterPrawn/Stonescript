@@ -149,9 +149,13 @@ AAC()
     :?foe = ice wall | foe = ice pillar
       equipL fire sword +10
       equipR fire sword +9
-    :?foe = giant & hp < maxhp
-      equipL vigor sword +10
-      equipR vigor sword +9
+    :?foe = giant
+      ?hp < maxhp
+        equipL vigor sword +10
+        equipR vigor sword +9
+      :
+        equipL fire sword +10
+        equipR fire sword +9
     :
       equipL fire sword +10
       equipR fire shield
