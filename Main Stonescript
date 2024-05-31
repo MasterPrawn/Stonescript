@@ -8,19 +8,19 @@
 ^,@foe.GetCount(15)@
 >c-45,1,S/T:  @foe.state@,@foe.time@
 >c-45,3,== CD STATUS ==
->c-45,4,BFG: @item.GetCooldown("blade")@
+>c-45,4,BFG: @item.GetCooldown(＂blade＂)@
 ^,BAR: @bar_cd@
->c-45,5,HAM: @item.GetCooldown("hammer")@
-^,STF: @item.GetCooldown("quarterstaff")@
->c-45,6,BSH: @item.GetCooldown("bash")@
-^,DSH: @item.GetCooldown("dash")@
+>c-45,5,HAM: @item.GetCooldown(＂hammer＂)@
+^,STF: @item.GetCooldown(＂quarterstaff＂)@
+>c-45,6,BSH: @item.GetCooldown(＂bash＂)@
+^,DSH: @item.GetCooldown(＂dash＂)@
 
 >c-45,10,BUFFS:   @buffs.string@
 >c-45,11,DEBUFFS: @debuffs.string@
 
 //==========================================//
 
-var bar_cd = item.GetCooldown("bardiche")
+var bar_cd = item.GetCooldown(＂bardiche＂)
 
 func lootwalk()
   ?pickup.distance < 15
@@ -28,7 +28,7 @@ func lootwalk()
     equipR star
   ?foe.distance > 23 & armor > 24
     equipL triskelion
-    equipR ouroboros
+    equipR quest
 
 func bardiche_use()
   ?foe.distance <= 5 & item.CanActivate()
@@ -38,14 +38,14 @@ func bardiche_use()
 
 func hammer_use()
   ?foe.distance <= 7 & item.CanActivate()
-  ^& item.GetCooldown("hammer") <= 0
-  ^| item.GetCooldown("hammer") > 645
+  ^& item.GetCooldown(＂hammer＂) <= 0
+  ^| item.GetCooldown(＂hammer＂) > 645
   ^& bar_cd > 0
     equip heavy hammer
     activate R
 
 func mask_use()
-  ?item.GetCooldown("mask") <= 0
+  ?item.GetCooldown(＂mask＂) <= 0
   ^& item.CanActivate()
   ^& foe.distance < 25
     equip mask
@@ -53,43 +53,47 @@ func mask_use()
  
 func blade_use()
   ?foe.GetCount(40) > 5 & foe ! boss &
-  ^item.GetCooldown("blade") <= 0
+  ^item.GetCooldown(＂blade＂) <= 0
     equip blade
     activate R
  
 func bdashstaff_use()
   ?foe.distance <= 16 & foe.distance >= 11 & 
-  ^item.GetCooldown("bash") <= 0
+  ^item.GetCooldown(＂bash＂) <= 0
+  ^& summon.count = 1
     equipR bashing shield
   ?foe.distance <= 16 & foe.distance >= 11 & 
-  ^item.GetCooldown("dash") <= 0
+  ^item.GetCooldown(＂dash＂) <= 0
+  ^& summon.count = 1
     equipR dashing shield
-  ?item.GetCooldown("quarterstaff") <= 0
+  ?item.GetCooldown(＂quarterstaff＂) <= 0
   ^& item.CanActivate() & foe.distance > 6
-  ^& foe ! boss
+  ^& foe ! boss & summon.count = 1
     equip quarterstaff
     activate R
 
 func aether_summ()
   ?summon.count = 0 & item.CanActivate()
-  ^& item.GetCooldown("aether_talisman") <= 0
+  ^& item.GetCooldown(＂aether_talisman＂) <= 0
     equipL triskelion
     equipR aether talisman
     activate R
 
 func fire_summ()
   ?summon.count = 0 & item.CanActivate()
-  ^& item.GetCooldown("fire_talisman") <= 0
+  ^& item.GetCooldown(＂fire_talisman＂) <= 0
     equipL triskelion
     equipR fire talisman
     activate R
 
 func armor_regen()
   ?armor < 14 & foe.distance > 23
+  ^& summon.count = 1
     equipL triskelion
     equipR compound shield +12
   ?armor <= 24 & armor >= 14
   ^& foe.distance > 23
+  ^& summon.count = 1
     equipL triskelion
     equipR compound shield +11
   ?pickup.distance < 15
@@ -125,31 +129,29 @@ func AAC()
 
 AAC()
 
-?loc = canyon | loc = rocky
-  fire_summ()
-:
-  aether_summ()
-
 ?loc = ridge & summon.count = 1
   ?foe.distance <= 15
-    ?foe = boss
-      ?foe.armor > 0
-        equipL fire sword +10
-        equipR fire sword +9
-      :?foe.distance = 3
-        equip shovel
+    ?foe = yeti
+      ?foe.state = 132
+        activate potion
+      :?foe.armor > 0
+        equip fire crossbow
       :?foe.distance < 3
         bardiche_use()
         ?bar_cd > 0 & bar_cd < 870
         ^& foe.distance <= 10
-          equipL fire sword +10
-          equipR fire sword +9
+          equip fire crossbow
+      :
+        equip fire crossbow
     :?foe.GetCount(15) >= 3
       equipL ice wand
       equipR fire shield
     :?foe = ice wall | foe = ice pillar
       equipL fire sword +10
       equipR fire sword +9
+    :?foe = giant & hp < maxhp
+      equipL vigor sword +10
+      equipR vigor sword +9
     :
       equipL fire sword +10
       equipR fire shield
@@ -172,15 +174,15 @@ AAC()
       ?foe.distance < 10 & foe.armor > 1
       ^& bar_cd < 870
       ^& bar_cd > 0
-      ^& item.GetCooldown("hammer") < 645
-      ^& item.GetCooldown("hammer") > 0
+      ^& item.GetCooldown(＂hammer＂) < 645
+      ^& item.GetCooldown(＂hammer＂) > 0
         equipL aether hammer +10
         equipR aether hammer +9
       ?foe.distance < 10 & foe.armor < 1
       ^& bar_cd < 870
       ^& bar_cd > 0
-      ^& item.GetCooldown("hammer") < 645
-      ^& item.GetCooldown("hammer") > 0
+      ^& item.GetCooldown(＂hammer＂) < 645
+      ^& item.GetCooldown(＂hammer＂) > 0
         equipL aether sword +10
         equipR aether sword +9
       ?foe.time = 210
@@ -308,3 +310,7 @@ bdashstaff_use()
 lootwalk()
 armor_regen()
 blade_use()
+?loc = canyon | loc = rocky
+  fire_summ()
+:
+  aether_summ()
