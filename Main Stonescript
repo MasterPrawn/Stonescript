@@ -129,6 +129,8 @@ func AAC()
 
 AAC()
 
+aether_summ()
+
 ?loc = ridge & summon.count = 1
   ?foe.distance <= 15
     ?foe = yeti
@@ -150,12 +152,8 @@ AAC()
       equipL fire sword +10
       equipR fire sword +9
     :?foe = giant
-      ?hp < maxhp
-        equipL vigor sword +10
-        equipR vigor sword +9
-      :
-        equipL fire sword +10
-        equipR fire sword +9
+      equipL vigor sword +10
+      equipR vigor sword +9
     :
       equipL fire sword +10
       equipR fire shield
@@ -226,6 +224,9 @@ AAC()
       ^& foe.distance <= 15
         equipL ice wand +10
         equipR ice wand +9
+      :
+        equipL vigor sword +10
+        equipR vigor sword +9
     :
       equipL vigor sword +10
       equipR vigor sword +9
@@ -247,7 +248,7 @@ AAC()
       equipL vigor sword +10
       equipR poison sword +10
 
-?loc = canyon
+?loc = canyon & summon.count = 1
   ?foe = xyloalgia
     ?foe.state ! 32
       bardiche_use()
@@ -314,7 +315,5 @@ bdashstaff_use()
 lootwalk()
 armor_regen()
 blade_use()
-?loc = canyon | loc = rocky
-  fire_summ()
-:
-  aether_summ()
+?harvest = Tree & harvest.distance < 10
+  equip hatchet
