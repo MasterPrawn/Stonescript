@@ -35,7 +35,8 @@ func lootwalk()
 
 func bardiche_use()
   ?foe.distance <= 5 & item.CanActivate()
-  ^& bar_cd <= 0 | bar_cd > 870
+  ^& item.GetCooldown(＂bardiche＂) <= 0 
+  ^| item.GetCooldown(＂bardiche＂) > 870
     equip bardiche
     activate R
 
@@ -43,7 +44,7 @@ func hammer_use()
   ?foe.distance <= 7 & item.CanActivate()
   ^& item.GetCooldown(＂hammer＂) <= 0
   ^| item.GetCooldown(＂hammer＂) > 645
-  ^& bar_cd > 0
+  ^& item.GetCooldown(＂bardiche＂) > 0
     equip heavy hammer
     activate R
 
@@ -146,7 +147,8 @@ AAC()
         equip fire crossbow
       :?foe.distance < 3
         bardiche_use()
-        ?bar_cd > 0 & bar_cd < 870
+        ?item.GetCooldown(＂bardiche＂) > 0 
+        ^& item.GetCooldown(＂bardiche＂) < 870
         ^& foe.distance <= 10
           equip fire crossbow
       :
@@ -173,22 +175,23 @@ AAC()
       ?foe.distance <= 7
         bardiche_use()
       ?foe.armor > 1 & foe.distance <= 6
-      ^& bar_cd > 0 & bar_cd < 870
+      ^& item.GetCooldown(＂bardiche＂) > 0 
+      ^& item.GetCooldown(＂bardiche＂) < 870
         hammer_use()
       ?foe.distance < 19 & foe.distance > 10
       ^& foe.armor > 1
         equipL aether hammer +10
         equipR aether hammer +9
       ?foe.distance < 10 & foe.armor > 1
-      ^& bar_cd < 870
-      ^& bar_cd > 0
+      ^& item.GetCooldown(＂bardiche＂) < 870
+      ^& item.GetCooldown(＂bardiche＂) > 0
       ^& item.GetCooldown(＂hammer＂) < 645
       ^& item.GetCooldown(＂hammer＂) > 0
         equipL aether hammer +10
         equipR aether hammer +9
       ?foe.distance < 10 & foe.armor < 1
-      ^& bar_cd < 870
-      ^& bar_cd > 0
+      ^& item.GetCooldown(＂bardiche＂) < 870
+      ^& item.GetCooldown(＂bardiche＂) > 0
       ^& item.GetCooldown(＂hammer＂) < 645
       ^& item.GetCooldown(＂hammer＂) > 0
         equipL aether sword +10
@@ -222,7 +225,8 @@ AAC()
         activate potion
       ?foe.distance <= 7
         bardiche_use()
-        ?bar_cd > 0 & bar_cd < 870
+        ?item.GetCooldown(＂bardiche＂) > 0 
+        ^& item.GetCooldown(＂bardiche＂) < 870
         ^& foe.distance <= 7
           equipL vigor sword +10
           equipR vigor sword +9
@@ -243,7 +247,8 @@ AAC()
       equipL mind
     :?foe = boss
       bardiche_use()
-      ?bar_cd > 0 & bar_cd < 870
+      ?item.GetCooldown(＂bardiche＂) > 0 
+      ^& item.GetCooldown(＂bardiche＂) < 870
       ^& foe.distance <= 10
         equipL vigor sword +10
         equipR poison sword +10
@@ -258,7 +263,8 @@ AAC()
   ?foe = xyloalgia
     ?foe.state ! 32
       bardiche_use()
-      ?bar_cd > 0 & bar_cd < 870
+      ?item.GetCooldown(＂bardiche＂) > 0 
+      ^& item.GetCooldown(＂bardiche＂) < 870
       ^& foe.distance <= 10
         equipL vigor sword +10
         equipR vigor sword +9
