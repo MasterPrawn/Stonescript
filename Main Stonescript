@@ -1,13 +1,15 @@
-var bladeCooldown 
-?item.GetCooldown(＂blade＂) <= 0 
-  bladeCooldown = 'RDY' 
-: 
-  bladeCooldown = item.GetCooldown(＂blade＂)
-var bardicheCooldown = item.GetCooldown(＂bardiche＂)
-var hammerCooldown = item.GetCooldown(＂hammer＂)
-var quarterstaffCooldown = item.GetCooldown(＂quarterstaff＂)
-var bashCooldown = item.GetCooldown(＂bash＂)
-var dashCooldown = item.GetCooldown(＂dash＂)
+func getCooldown(cooldown)
+  ?cooldown <= 0 
+    return "[color=#32CD32]RDY[/color]"
+  : 
+    return cooldown
+
+var bladeCooldown = getCooldown(item.GetCooldown(＂blade＂))
+var bardicheCooldown = getCooldown(item.GetCooldown(＂bardiche＂))
+var hammerCooldown = getCooldown(item.GetCooldown(＂hammer＂))
+var quarterstaffCooldown = getCooldown(item.GetCooldown(＂quarterstaff＂))
+var bashCooldown = getCooldown(item.GetCooldown(＂bash＂))
+var dashCooldown = getCooldown(item.GetCooldown(＂dash＂))
 
 >c-45,-7,== LVL TIMES ==
 >c-45,-6,BST: @loc.bestTime@
@@ -20,11 +22,11 @@ var dashCooldown = item.GetCooldown(＂dash＂)
 >c-45,1,S/T:  @foe.state@,@foe.time@
 >c-45,3,== CD STATUS ==
 >c-45,4,BFG: @bladeCooldown@
-^,BAR: ?@item.GetCooldown(＂bardiche＂)@
->c-45,5,HAM: @item.GetCooldown(＂hammer＂)@
-^,STF: @item.GetCooldown(＂quarterstaff＂)@
->c-45,6,BSH: @item.GetCooldown(＂bash＂)@
-^,DSH: @item.GetCooldown(＂dash＂)@
+^,BAR: @bardicheCooldown@
+>c-45,5,HAM: @hammerCooldown@
+^,STF: @quarterstaffCooldown@
+>c-45,6,BSH: @bashCooldown@
+^,DSH: @dashCooldown@
 
 >c-45,10,BUFFS:   @buffs.string@
 >c-45,11,DEBUFFS: @debuffs.string@
