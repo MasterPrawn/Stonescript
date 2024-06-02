@@ -295,10 +295,16 @@ AAC()
     ^& foe.distance <= 10
       equipL fire sword +10
       equipR fire sword +9
+    :
+      equipL fire sword +10
+      equipR fire sword +9
   :?foe = fire
     bardiche_use()
     ?bar_cd > 0 & bar_cd < 870
     ^& foe.distance <= 10
+      equipL aether sword +10
+      equipR aether sword +9
+    :
       equipL aether sword +10
       equipR aether sword +9
   :?foe = poison
@@ -307,10 +313,16 @@ AAC()
     ^& foe.distance <= 10
       equipL ice wand +10
       equipR ice wand +9
+    :
+      equipL ice wand +10
+      equipR ice wand +9
   :?foe = vigor
     bardiche_use()
     ?bar_cd > 0 & bar_cd < 870
     ^& foe.distance <= 10
+      equipL poison sword +10
+      equipR poison wand +10
+    :
       equipL poison sword +10
       equipR poison wand +10
   :
