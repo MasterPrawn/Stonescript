@@ -1,17 +1,32 @@
+var p = ui.AddPanel()
+p.anchor = center_center
+p.dock = center_center
+
+var weapons = ["blade", "quarterstaff"]
+
 func getCooldown(cooldown)
+  var t = ui.AddText()
+  t.x = -45
+  t.y = 0
   ?cooldown <= 0 
-    return "<font color='green'>RDY</font>"
+    t.text = "[color=#32CD32]RDY[/color]"
   : 
-    return cooldown
+    t.text = cooldown
+  p.Add(t)
+
+count = weapons.Count()
+?count > 0
+  for i = 0 .. count - 1
+    getCooldown(weapons[i])
 
 // [color=#32CD32]
 
-var bladeCooldown = getCooldown(item.GetCooldown(＂blade＂))
-var bardicheCooldown = getCooldown(item.GetCooldown(＂bardiche＂))
-var hammerCooldown = getCooldown(item.GetCooldown(＂hammer＂))
-var quarterstaffCooldown = getCooldown(item.GetCooldown(＂quarterstaff＂))
-var bashCooldown = getCooldown(item.GetCooldown(＂bash＂))
-var dashCooldown = getCooldown(item.GetCooldown(＂dash＂))
+// var bladeCooldown = getCooldown(item.GetCooldown(＂blade＂))
+// var bardicheCooldown = getCooldown(item.GetCooldown(＂bardiche＂))
+// var hammerCooldown = getCooldown(item.GetCooldown(＂hammer＂))
+// var quarterstaffCooldown = getCooldown(item.GetCooldown(＂quarterstaff＂))
+// var bashCooldown = getCooldown(item.GetCooldown(＂bash＂))
+// var dashCooldown = getCooldown(item.GetCooldown(＂dash＂))
 
 >c-45,-7,== LVL TIMES ==
 >c-45,-6,BST: @loc.bestTime@
@@ -23,12 +38,12 @@ var dashCooldown = getCooldown(item.GetCooldown(＂dash＂))
 ^,@foe.GetCount(15)@
 >c-45,1,S/T:  @foe.state@,@foe.time@
 >c-45,3,== CD STATUS ==
->c-45,4,BFG: @bladeCooldown@
-^,BAR: @bardicheCooldown@
->c-45,5,HAM: @hammerCooldown@
-^,STF: @quarterstaffCooldown@
->c-45,6,BSH: @bashCooldown@
-^,DSH: @dashCooldown@
+// >c-45,4,BFG: @bladeCooldown@
+// ^,BAR: @bardicheCooldown@
+// >c-45,5,HAM: @hammerCooldown@
+// ^,STF: @quarterstaffCooldown@
+// >c-45,6,BSH: @bashCooldown@
+// ^,DSH: @dashCooldown@
 
 >c-45,10,BUFFS:   @buffs.string@
 >c-45,11,DEBUFFS: @debuffs.string@
