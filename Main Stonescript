@@ -141,17 +141,11 @@ AAC()
 ?loc = ridge & summon.count = 1
   ?foe.distance <= 15
     ?foe = yeti
+      ?foe.armor > 0
+        bardiche_use()
       ?foe.state = 132
         activate potion
-      :?foe.armor > 0
-        equip fire crossbow
-      :?foe.distance < 3
-        bardiche_use()
-        ?item.GetCooldown(＂bardiche＂) > 0 
-        ^& item.GetCooldown(＂bardiche＂) < 870
-        ^& foe.distance <= 10
-          equip fire crossbow
-      :
+      :?bar_on_cd()
         equip fire crossbow
     :?foe.GetCount(15) >= 3
       equipL ice wand
@@ -160,8 +154,12 @@ AAC()
       equipL fire sword +10
       equipR fire sword +9
     :?foe = giant
-      equipL vigor sword +10
-      equipR vigor sword +9
+      ?hp < maxhp
+        equipL vigor sword +10
+        equipR vigor sword +9
+      :
+        equipL fire sword +10
+        equipR fire sword +9
     :
       equipL fire sword +10
       equipR fire shield
@@ -215,31 +213,25 @@ AAC()
     equipR aether shield
 
 ?loc = halls & summon.count = 1
-  ?foe.distance < 17
+  ?foe.GetCount(15) >= 3 | foe = ghost
+  ^& foe.distance <= 15
+    equipL ice wand +10
+    equipR ice wand +9
+  :?foe = pallas
+    ?foe.state = 2 & foe = legless
+      activate potion
+    ?foe.distance <= 7
+      bardiche_use()
+    ?bar_on_cd()
+      equipL vigor sword +10
+      equipR vigor sword +9
     ?foe.GetCount(15) >= 3 | foe = ghost
     ^& foe.distance <= 15
       equipL ice wand +10
       equipR ice wand +9
-    :?foe = pallas
-      ?foe.state = 2 & foe = legless
-        activate potion
-      ?foe.distance <= 7
-        bardiche_use()
-        ?item.GetCooldown(＂bardiche＂) > 0 
-        ^& item.GetCooldown(＂bardiche＂) < 870
-        ^& foe.distance <= 7
-          equipL vigor sword +10
-          equipR vigor sword +9
-      ?foe.GetCount(15) >= 3 | foe = ghost
-      ^& foe.distance <= 15
-        equipL ice wand +10
-        equipR ice wand +9
-      :
-        equipL vigor sword +10
-        equipR vigor sword +9
-    :
-      equipL vigor sword +10
-      equipR vigor sword +9
+  :
+    equipL vigor sword +10
+    equipR vigor sword +9
 
 ?loc = forest & summon.count = 1
   ?foe.distance <= 15
