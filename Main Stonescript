@@ -129,7 +129,10 @@ func AAC()
 
 AAC()
 
-aether_summ()
+?loc = rocky
+  fire_summ()
+:
+  aether_summ()
 
 ?loc = ridge & summon.count = 1
   ?foe.distance <= 15
