@@ -1,4 +1,8 @@
-var bladeCooldown = ?item.GetCooldown(＂blade＂) <= 0 ? 'RDY' : item.GetCooldown(＂blade＂)
+var bladeCooldown 
+?item.GetCooldown(＂blade＂) <= 0 
+  bladeCooldown = 'RDY' 
+: 
+  bladeCooldown = item.GetCooldown(＂blade＂)
 var bardicheCooldown = item.GetCooldown(＂bardiche＂)
 var hammerCooldown = item.GetCooldown(＂hammer＂)
 var quarterstaffCooldown = item.GetCooldown(＂quarterstaff＂)
