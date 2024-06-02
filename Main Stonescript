@@ -286,6 +286,9 @@ AAC()
     ^& foe.distance <= 10
       equipL vigor sword +10
       equipR vigor sword +9
+    :
+      equipL vigor sword +10
+      equipR vigor sword +9
   :?foe = ice
     bardiche_use()
     ?bar_cd > 0 & bar_cd < 870
