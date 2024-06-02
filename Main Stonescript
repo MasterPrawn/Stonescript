@@ -34,7 +34,7 @@ func lootwalk()
     equipR quest
 
 func bardiche_use()
-  ?foe.distance <= 5 & item.CanActivate()
+  ?foe.distance <= 10 & item.CanActivate()
   ^& item.GetCooldown(＂bardiche＂) <= 0 
   ^| item.GetCooldown(＂bardiche＂) > 870
     equip bardiche
