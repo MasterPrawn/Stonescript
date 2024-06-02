@@ -5,6 +5,8 @@ var blade_cd = item.GetCooldown(＂blade＂)
   blade_cd = RDY
 :?item.GetCooldown(＂blade＂) > 999
   blade_cd = "999+"
+:
+  blade_cd = item.GetCooldown(＂blade＂)
 
 var bardiche_cd = item.GetCooldown(＂bardiche＂)
 var hammer_cd = item.GetCooldown(＂hammer＂)
