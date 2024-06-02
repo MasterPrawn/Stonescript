@@ -1,25 +1,3 @@
-var p = ui.AddPanel()
-p.anchor = center_center
-p.dock = center_center
-
-var weapons = ["blade", "quarterstaff"]
-
-func getCooldown(weapon)
-  var cooldown = item.GetCooldown(weapon)
-  var t = ui.AddText()
-  t.x = -45
-  t.y = 0
-  ?cooldown <= 0 
-    t.text = "[color=#32CD32]RDY[/color]"
-  : 
-    t.text = cooldown
-  p.Add(t)
-
-var count = weapons.Count()
-?count > 0
-  for i = 0 .. count - 1
-    getCooldown(weapons[i])
-
 // [color=#32CD32]
 
 // var bladeCooldown = getCooldown(item.GetCooldown(＂blade＂))
@@ -39,12 +17,12 @@ var count = weapons.Count()
 ^,@foe.GetCount(15)@
 >c-45,1,S/T:  @foe.state@,@foe.time@
 >c-45,3,== CD STATUS ==
-// >c-45,4,BFG: @bladeCooldown@
-// ^,BAR: @bardicheCooldown@
-// >c-45,5,HAM: @hammerCooldown@
-// ^,STF: @quarterstaffCooldown@
-// >c-45,6,BSH: @bashCooldown@
-// ^,DSH: @dashCooldown@
+>c-45,4,BFG: @bladeCooldown@
+>c-35,4,BAR: @bardicheCooldown@
+>c-45,5,HAM: @hammerCooldown@
+>c-35,5,STF: @quarterstaffCooldown@
+>c-45,6,BSH: @bashCooldown@
+>c-35,6,DSH: @dashCooldown@
 
 >c-45,10,BUFFS:   @buffs.string@
 >c-45,11,DEBUFFS: @debuffs.string@
