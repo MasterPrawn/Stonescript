@@ -1,10 +1,10 @@
 func getCooldown(cooldown)
-  var t = ui.AddText()
   ?cooldown <= 0 
-    t.text = "[color=#32CD32]RDY[/color]"
+    >#green,RDY
   : 
-    t.text = cooldown
-  return t
+    >@cooldown@
+
+// [color=#32CD32]
 
 var bladeCooldown = getCooldown(item.GetCooldown(＂blade＂))
 var bardicheCooldown = getCooldown(item.GetCooldown(＂bardiche＂))
