@@ -18,7 +18,7 @@
 >c-45,10,BUFFS:   @buffs.string@
 >c-45,11,DEBUFFS: @debuffs.string@
 
-//==========================================//
+//============================================//
 
 var bar_cd = item.GetCooldown(＂bardiche＂)
 
@@ -100,7 +100,7 @@ func armor_regen()
     equipL star
     equipR compound shield +12
 
-//==========================================//
+//============================================//
 
 func isEquippedTwoHanded()
   return !item.left
@@ -125,7 +125,7 @@ func AAC()
     ?leftItem
       equipL @leftItem@
 
-//==========================================//
+//============================================//
 
 AAC()
 
@@ -280,54 +280,25 @@ AAC()
     equipR vigor sword +9
 
 ?loc = rocky & summon.count = 1
-  ?foe = acronian
     bardiche_use()
-    ?bar_cd > 0 & bar_cd < 870
-    ^& foe.distance <= 10
+    ?foe = acronian & bar_cd > 0 & bar_cd < 870
       equipL vigor sword +10
       equipR vigor sword +9
-    :
-      equipL vigor sword +10
-      equipR vigor sword +9
-  :?foe = ice
-    bardiche_use()
-    ?bar_cd > 0 & bar_cd < 870
-    ^& foe.distance <= 10
+    :?foe = ice & bar_cd > 0 & bar_cd < 870
       equipL fire sword +10
       equipR fire sword +9
-    :
-      equipL fire sword +10
-      equipR fire sword +9
-  :?foe = fire
-    bardiche_use()
-    ?bar_cd > 0 & bar_cd < 870
-    ^& foe.distance <= 10
+    :?foe = fire & bar_cd > 0 & bar_cd < 870
       equipL aether sword +10
       equipR aether sword +9
-    :
-      equipL aether sword +10
-      equipR aether sword +9
-  :?foe = poison
-    bardiche_use()
-    ?bar_cd > 0 & bar_cd < 870
-    ^& foe.distance <= 10
+    :?foe = poison & bar_cd > 0 & bar_cd < 870
       equipL ice wand +10
       equipR ice wand +9
-    :
-      equipL ice wand +10
-      equipR ice wand +9
-  :?foe = vigor
-    bardiche_use()
-    ?bar_cd > 0 & bar_cd < 870
-    ^& foe.distance <= 10
+    :?foe = vigor & bar_cd > 0 & bar_cd < 870
       equipL poison sword +10
       equipR poison wand +10
     :
-      equipL poison sword +10
-      equipR poison wand +10
-  :
-    equipL vigor sword +10
-    equipR vigor sword +9
+      equipL vigor sword +10
+      equipR vigor sword +9
 
 bdashstaff_use()
 lootwalk()
