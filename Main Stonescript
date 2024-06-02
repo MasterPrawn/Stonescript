@@ -1,3 +1,10 @@
+var bladeCooldown = ?item.GetCooldown(＂blade＂) <= 0 ? 'RDY' : item.GetCooldown(＂blade＂)
+var bardicheCooldown = item.GetCooldown(＂bardiche＂)
+var hammerCooldown = item.GetCooldown(＂hammer＂)
+var quarterstaffCooldown = item.GetCooldown(＂quarterstaff＂)
+var bashCooldown = item.GetCooldown(＂bash＂)
+var dashCooldown = item.GetCooldown(＂dash＂)
+
 >c-45,-7,== LVL TIMES ==
 >c-45,-6,BST: @loc.bestTime@
 >c-45,-5,AVG: @loc.averageTime@
@@ -8,8 +15,8 @@
 ^,@foe.GetCount(15)@
 >c-45,1,S/T:  @foe.state@,@foe.time@
 >c-45,3,== CD STATUS ==
->c-45,4,BFG: @item.GetCooldown(＂blade＂)@
-^,BAR: @item.GetCooldown(＂bardiche＂)@
+>c-45,4,BFG: @bladeCooldown@
+^,BAR: ?@item.GetCooldown(＂bardiche＂)@
 >c-45,5,HAM: @item.GetCooldown(＂hammer＂)@
 ^,STF: @item.GetCooldown(＂quarterstaff＂)@
 >c-45,6,BSH: @item.GetCooldown(＂bash＂)@
