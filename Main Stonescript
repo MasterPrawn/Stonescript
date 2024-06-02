@@ -9,7 +9,7 @@
 >c-45,1,S/T:  @foe.state@,@foe.time@
 >c-45,3,== CD STATUS ==
 >c-45,4,BFG: @item.GetCooldown(＂blade＂)@
-^,BAR: @bar_cd@
+^,BAR: @item.GetCooldown(＂bardiche＂)@
 >c-45,5,HAM: @item.GetCooldown(＂hammer＂)@
 ^,STF: @item.GetCooldown(＂quarterstaff＂)@
 >c-45,6,BSH: @item.GetCooldown(＂bash＂)@
