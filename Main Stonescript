@@ -143,7 +143,7 @@ AAC()
     ?foe = yeti
       ?foe.armor > 0
         bardiche_use()
-      ?foe.state = 132
+      :?foe.state = 132
         activate potion
       :?bar_on_cd()
         equip fire crossbow
