@@ -17,12 +17,12 @@
 ^,@foe.GetCount(15)@
 >c-45,1,S/T:  @foe.state@,@foe.time@
 >c-45,3,== CD STATUS ==
->c-45,4,BFG: @bladeCooldown@
->c-35,4,BAR: @bardicheCooldown@
->c-45,5,HAM: @hammerCooldown@
->c-35,5,STF: @quarterstaffCooldown@
->c-45,6,BSH: @bashCooldown@
->c-35,6,DSH: @dashCooldown@
+>c-45,4,BFG: @item.GetCooldown(＂blade＂)@
+>c-35,4,BAR: @item.GetCooldown(＂bardiche＂)@
+>c-45,5,HAM: @item.GetCooldown(＂hammer＂)@
+>c-35,5,STF: @item.GetCooldown(＂quarterstaff＂)@
+>c-45,6,BSH: @item.GetCooldown(＂bash＂)@
+>c-35,6,DSH: @item.GetCooldown(＂dash＂)@
 
 >c-45,10,BUFFS:   @buffs.string@
 >c-45,11,DEBUFFS: @debuffs.string@
