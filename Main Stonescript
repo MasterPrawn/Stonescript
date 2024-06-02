@@ -20,7 +20,10 @@
 
 //============================================//
 
-var bar_cd = item.GetCooldown(＂bardiche＂)
+func bar_on_cd()
+  ?item.GetCooldown(＂bardiche＂) > 0
+  ^& item.GetCooldown(＂bardiche＂) < 870
+    return true
 
 func lootwalk()
   ?pickup.distance < 15
@@ -281,7 +284,7 @@ AAC()
 
 ?loc = rocky & summon.count = 1
   bardiche_use()
-  ?bar_cd > 0 & bar_cd < 870
+  ?bar_on_cd()
     ?foe = acronian
       equipL vigor sword +10
       equipR vigor sword +9
