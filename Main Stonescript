@@ -1,8 +1,8 @@
 func getCooldown(cooldown)
   ?cooldown <= 0 
-    >#green,RDY
+    return "<font color='green'>RDY</font>"
   : 
-    >@cooldown@
+    return cooldown
 
 // [color=#32CD32]
 
