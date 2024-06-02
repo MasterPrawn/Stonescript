@@ -1,16 +1,8 @@
-// [color=#32CD32]
-
 var blade_cd = item.GetCooldown(＂blade＂)
 ?item.GetCooldown(＂blade＂) > 999
   blade_cd = "999+"
 :
   blade_cd = item.GetCooldown(＂blade＂)
-
-var bardiche_cd = item.GetCooldown(＂bardiche＂)
-var hammer_cd = item.GetCooldown(＂hammer＂)
-var quarterstaff_cd = item.GetCooldown(＂quarterstaff＂)
-var bash_cd = item.GetCooldown(＂bash＂)
-var dash_cd = item.GetCooldown(＂dash＂)
 
 >c-45,-7,== LVL TIMES ==
 >c-45,-6,BST: @loc.bestTime@
@@ -28,11 +20,20 @@ var dash_cd = item.GetCooldown(＂dash＂)
 >c-35,5,STF: @item.GetCooldown(＂quarterstaff＂)@
 >c-45,6,BSH: @item.GetCooldown(＂bash＂)@
 >c-35,6,DSH: @item.GetCooldown(＂dash＂)@
-
->c-45,10,BUFFS:   @buffs.string@
->c-45,11,DEBUFFS: @debuffs.string@
 ?item.GetCooldown(＂blade＂) <= 0 
   >c-40,4,#32CD32,RDY
+?item.GetCooldown(＂bardiche＂) <= 0 
+  >c-30,4,#32CD32,RDY
+?item.GetCooldown(＂hammer＂) <= 0 
+  >c-40,5,#32CD32,RDY
+?item.GetCooldown(＂quarterstaff＂) <= 0 
+  >c-30,5,#32CD32,RDY
+?item.GetCooldown(＂bash＂) <= 0 
+  >c-40,6,#32CD32,RDY
+?item.GetCooldown(＂dash＂) <= 0 
+  >c-30,6,#32CD32,RDY
+>c-45,10,BUFFS:   @buffs.string@
+>c-45,11,DEBUFFS: @debuffs.string@
 
 //============================================//
 
