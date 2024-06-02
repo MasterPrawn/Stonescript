@@ -1,9 +1,7 @@
 // [color=#32CD32]
 
 var blade_cd = item.GetCooldown(＂blade＂)
-?item.GetCooldown(＂blade＂) <= 0 
-  blade_cd = RDY
-:?item.GetCooldown(＂blade＂) > 999
+?item.GetCooldown(＂blade＂) > 999
   blade_cd = "999+"
 :
   blade_cd = item.GetCooldown(＂blade＂)
@@ -24,7 +22,7 @@ var dash_cd = item.GetCooldown(＂dash＂)
 ^,@foe.GetCount(15)@
 >c-45,1,S/T:  @foe.state@,@foe.time@
 >c-45,3,== ITEM COOLDOWNS ==
->c-45,4,BFG: @item.GetCooldown(＂blade＂)@
+>c-45,4,BFG: @blade_cd@
 >c-35,4,BAR: @item.GetCooldown(＂bardiche＂)@
 >c-45,5,HAM: @item.GetCooldown(＂hammer＂)@
 >c-35,5,STF: @item.GetCooldown(＂quarterstaff＂)@
@@ -33,6 +31,8 @@ var dash_cd = item.GetCooldown(＂dash＂)
 
 >c-45,10,BUFFS:   @buffs.string@
 >c-45,11,DEBUFFS: @debuffs.string@
+?item.GetCooldown(＂blade＂) <= 0 
+  >c-40,4,#32CD32,RDY
 
 //============================================//
 
