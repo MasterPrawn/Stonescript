@@ -1,11 +1,15 @@
 // [color=#32CD32]
 
-// var bladeCooldown = getCooldown(item.GetCooldown(＂blade＂))
-// var bardicheCooldown = getCooldown(item.GetCooldown(＂bardiche＂))
-// var hammerCooldown = getCooldown(item.GetCooldown(＂hammer＂))
-// var quarterstaffCooldown = getCooldown(item.GetCooldown(＂quarterstaff＂))
-// var bashCooldown = getCooldown(item.GetCooldown(＂bash＂))
-// var dashCooldown = getCooldown(item.GetCooldown(＂dash＂))
+var blade_cd = item.GetCooldown(＂blade＂)
+?item.GetCooldown(＂blade＂) <= 0 
+  blade_cd = RDY
+:?item.GetCooldown(＂blade＂) > 999
+  blade_cd = 999+
+var bardiche_cd = item.GetCooldown(＂bardiche＂)
+var hammer_cd = item.GetCooldown(＂hammer＂)
+var quarterstaff_cd = item.GetCooldown(＂quarterstaff＂)
+var bash_cd = item.GetCooldown(＂bash＂)
+var dash_cd = item.GetCooldown(＂dash＂)
 
 >c-45,-7,== LVL TIMES ==
 >c-45,-6,BST: @loc.bestTime@
@@ -16,7 +20,7 @@
 >c-45,0,Dist: @foe.distance@
 ^,@foe.GetCount(15)@
 >c-45,1,S/T:  @foe.state@,@foe.time@
->c-45,3,== CD STATUS ==
+>c-45,3,== ITEM COOLDOWNS ==
 >c-45,4,BFG: @item.GetCooldown(＂blade＂)@
 >c-35,4,BAR: @item.GetCooldown(＂bardiche＂)@
 >c-45,5,HAM: @item.GetCooldown(＂hammer＂)@
