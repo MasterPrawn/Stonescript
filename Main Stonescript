@@ -64,11 +64,11 @@ func blade_use()
 func bdashstaff_use()
   ?foe.distance <= 16 & foe.distance >= 11 & 
   ^item.GetCooldown(＂bash＂) <= 0
-  ^& summon.count = 1
+  ^& summon.count = 1 & foe ! yeti
     equipR bashing shield
   ?foe.distance <= 16 & foe.distance >= 11 & 
   ^item.GetCooldown(＂dash＂) <= 0
-  ^& summon.count = 1
+  ^& summon.count = 1 & foe ! yeti
     equipR dashing shield
   ?item.GetCooldown(＂quarterstaff＂) <= 0
   ^& item.CanActivate() & foe.distance > 6
@@ -150,7 +150,7 @@ AAC()
     :?foe.GetCount(15) >= 3
       equipL ice wand
       equipR fire shield
-    :?foe = ice wall | foe = ice pillar
+    :?foe = ice pillar
       equipL fire sword +10
       equipR fire sword +9
     :?foe = giant
