@@ -326,3 +326,5 @@ armor_regen()
 blade_use()
 ?harvest = Tree & harvest.distance < 10
   equip hatchet
+?harvest = Boulder & harvest.distance < 10
+  equip shovel
