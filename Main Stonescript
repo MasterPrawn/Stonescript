@@ -191,8 +191,7 @@ AAC()
       ?foe.distance <= 7
         bardiche_use()
       ?foe.armor > 1 & foe.distance <= 6
-      ^& item.GetCooldown(＂bardiche＂) > 0 
-      ^& item.GetCooldown(＂bardiche＂) < 870
+      ^&bar_on_cd()
         hammer_use()
       ?foe.distance < 19 & foe.distance > 10
       ^& foe.armor > 1
@@ -273,8 +272,7 @@ AAC()
   ?foe = xyloalgia
     ?foe.state ! 32
       bardiche_use()
-      ?item.GetCooldown(＂bardiche＂) > 0 
-      ^& item.GetCooldown(＂bardiche＂) < 870
+      ?bar_on_cd()
       ^& foe.distance <= 10
         equipL vigor sword +10
         equipR vigor sword +9
