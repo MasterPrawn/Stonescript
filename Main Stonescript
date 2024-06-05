@@ -3,7 +3,7 @@ var blade_cd = item.GetCooldown(＂blade＂)
   blade_cd = "999+"
 :
   blade_cd = item.GetCooldown(＂blade＂)
-
+//
 >c-45,-7,== LVL TIMES ==
 >c-45,-6,BST: @loc.bestTime@
 >c-45,-5,AVG: @loc.averageTime@
@@ -36,11 +36,6 @@ var blade_cd = item.GetCooldown(＂blade＂)
 >c-45,11,DEBUFFS: @debuffs.string@
 
 //============================================//
-
-func bar_on_cd()
-  ?item.GetCooldown(＂bardiche＂) > 0
-  ^& item.GetCooldown(＂bardiche＂) < 870
-    return true
 
 func lootwalk()
   ?pickup.distance < 15
@@ -121,6 +116,16 @@ func armor_regen()
     equipL star
     equipR compound shield +12
 
+func bar_on_cd()
+  ?item.GetCooldown(＂bardiche＂) > 0
+  ^& item.GetCooldown(＂bardiche＂) < 870
+    return true
+
+func ham_on_cd()
+  ?item.GetCooldown(＂hammer＂) > 0
+  ^& item.GetCooldown(＂hammer＂) < 645
+    return true
+
 //============================================//
 
 func isEquippedTwoHanded()
@@ -198,17 +203,11 @@ AAC()
         equipL aether hammer +10
         equipR aether hammer +9
       ?foe.distance < 10 & foe.armor > 1
-      ^& item.GetCooldown(＂bardiche＂) < 870
-      ^& item.GetCooldown(＂bardiche＂) > 0
-      ^& item.GetCooldown(＂hammer＂) < 645
-      ^& item.GetCooldown(＂hammer＂) > 0
+      ^& bar_on_cd() & ham_on_cd()
         equipL aether hammer +10
         equipR aether hammer +9
       ?foe.distance < 10 & foe.armor < 1
-      ^& item.GetCooldown(＂bardiche＂) < 870
-      ^& item.GetCooldown(＂bardiche＂) > 0
-      ^& item.GetCooldown(＂hammer＂) < 645
-      ^& item.GetCooldown(＂hammer＂) > 0
+      ^& bar_on_cd() & ham_on_cd()
         equipL aether sword +10
         equipR aether sword +9
       ?foe.time = 210
@@ -256,9 +255,7 @@ AAC()
       equipL mind
     :?foe = boss
       bardiche_use()
-      ?item.GetCooldown(＂bardiche＂) > 0 
-      ^& item.GetCooldown(＂bardiche＂) < 870
-      ^& foe.distance <= 10
+      ?bar_on_cd() & foe.distance <= 10
         equipL vigor sword +10
         equipR poison sword +10
     :?foe.GetCount(15) >= 3
