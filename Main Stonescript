@@ -1,9 +1,9 @@
 var blade_cd = item.GetCooldown(＂blade＂)
 ?item.GetCooldown(＂blade＂) > 999
-  blade_cd = "999+"
+  blade_cd = ＂999+＂
 :
   blade_cd = item.GetCooldown(＂blade＂)
-//
+
 >c-45,-7,== LVL TIMES ==
 >c-45,-6,BST: @loc.bestTime@
 >c-45,-5,AVG: @loc.averageTime@
@@ -37,8 +37,13 @@ var blade_cd = item.GetCooldown(＂blade＂)
 
 //============================================//
 
+func bar_on_cd()
+  ?item.GetCooldown(＂bardiche＂) > 0
+  ^& item.GetCooldown(＂bardiche＂) < 870
+    return true
+
 func lootwalk()
-  ?pickup.distance < 15
+  ?pickup.distance < 15 & summon.count = 1
     equipL triskelion
     equipR star
   ?foe.distance > 23 & armor > 24
@@ -68,7 +73,7 @@ func mask_use()
     activate R
  
 func blade_use()
-  ?foe.GetCount(40) > 5 & foe ! boss &
+  ?foe.GetCount(30) > 8 & foe ! boss &
   ^item.GetCooldown(＂blade＂) <= 0
     equip blade
     activate R
@@ -84,7 +89,7 @@ func bdashstaff_use()
     equipR dashing shield
   ?item.GetCooldown(＂quarterstaff＂) <= 0
   ^& item.CanActivate() & foe.distance > 6
-  ^& foe ! boss & summon.count = 1
+  ^& summon.count = 1 & foe ! yeti
     equip quarterstaff
     activate R
 
@@ -115,16 +120,6 @@ func armor_regen()
   ?pickup.distance < 15
     equipL star
     equipR compound shield +12
-
-func bar_on_cd()
-  ?item.GetCooldown(＂bardiche＂) > 0
-  ^& item.GetCooldown(＂bardiche＂) < 870
-    return true
-
-func ham_on_cd()
-  ?item.GetCooldown(＂hammer＂) > 0
-  ^& item.GetCooldown(＂hammer＂) < 645
-    return true
 
 //============================================//
 
@@ -169,14 +164,17 @@ AAC()
     :?bar_on_cd()
       equip fire crossbow
   :?foe.GetCount(15) >= 3
-    equipL ice wand
-    equipR fire shield
+    equipL ice wand +10
+    equipR ice wand +9
   :?foe = ice pillar
     equipL fire sword +10
     equipR fire sword +9
   :?foe = ice wall
     equip fire crossbow
   :?foe = giant
+    ?foe.state = 2 & foe.time = 50
+      equip mask
+      activate R
     ?hp < maxhp
       equipL vigor sword +10
       equipR vigor sword +9
@@ -196,18 +194,25 @@ AAC()
       ?foe.distance <= 7
         bardiche_use()
       ?foe.armor > 1 & foe.distance <= 6
-      ^&bar_on_cd()
+      ^& item.GetCooldown(＂bardiche＂) > 0 
+      ^& item.GetCooldown(＂bardiche＂) < 870
         hammer_use()
       ?foe.distance < 19 & foe.distance > 10
       ^& foe.armor > 1
         equipL aether hammer +10
         equipR aether hammer +9
       ?foe.distance < 10 & foe.armor > 1
-      ^& bar_on_cd() & ham_on_cd()
+      ^& item.GetCooldown(＂bardiche＂) < 870
+      ^& item.GetCooldown(＂bardiche＂) > 0
+      ^& item.GetCooldown(＂hammer＂) < 645
+      ^& item.GetCooldown(＂hammer＂) > 0
         equipL aether hammer +10
         equipR aether hammer +9
       ?foe.distance < 10 & foe.armor < 1
-      ^& bar_on_cd() & ham_on_cd()
+      ^& item.GetCooldown(＂bardiche＂) < 870
+      ^& item.GetCooldown(＂bardiche＂) > 0
+      ^& item.GetCooldown(＂hammer＂) < 645
+      ^& item.GetCooldown(＂hammer＂) > 0
         equipL aether sword +10
         equipR aether sword +9
       ?foe.time = 210
@@ -255,7 +260,9 @@ AAC()
       equipL mind
     :?foe = boss
       bardiche_use()
-      ?bar_on_cd() & foe.distance <= 10
+      ?item.GetCooldown(＂bardiche＂) > 0 
+      ^& item.GetCooldown(＂bardiche＂) < 870
+      ^& foe.distance <= 10
         equipL vigor sword +10
         equipR poison sword +10
     :?foe.GetCount(15) >= 3
@@ -269,7 +276,8 @@ AAC()
   ?foe = xyloalgia
     ?foe.state ! 32
       bardiche_use()
-      ?bar_on_cd()
+      ?item.GetCooldown(＂bardiche＂) > 0 
+      ^& item.GetCooldown(＂bardiche＂) < 870
       ^& foe.distance <= 10
         equipL vigor sword +10
         equipR vigor sword +9
@@ -319,7 +327,7 @@ bdashstaff_use()
 lootwalk()
 armor_regen()
 blade_use()
-?harvest = Tree & harvest.distance < 10
-  equip hatchet
-?harvest = Boulder & harvest.distance < 10
-  equip shovel
+//?harvest = Tree & harvest.distance < 10
+//  equip hatchet
+//?harvest = Boulder & harvest.distance < 10
+//  equip shovel
