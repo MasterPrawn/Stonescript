@@ -1,6 +1,6 @@
 var blade_cd = item.GetCooldown(＂blade＂)
 ?item.GetCooldown(＂blade＂) > 999
-  blade_cd = "999+"
+  blade_cd = ＂999+＂
 :
   blade_cd = item.GetCooldown(＂blade＂)
 
@@ -48,7 +48,7 @@ func ham_on_cd()
     return true
 
 func lootwalk()
-  ?pickup.distance < 15
+  ?pickup.distance < 15 & summon.count = 1
     equipL triskelion
     equipR star
   ?foe.distance > 23 & armor > 24
@@ -78,7 +78,7 @@ func mask_use()
     activate R
  
 func blade_use()
-  ?foe.GetCount(40) > 5 & foe ! boss &
+  ?foe.GetCount(30) > 8 & foe ! boss &
   ^item.GetCooldown(＂blade＂) <= 0
     equip blade
     activate R
@@ -94,7 +94,7 @@ func bdashstaff_use()
     equipR dashing shield
   ?item.GetCooldown(＂quarterstaff＂) <= 0
   ^& item.CanActivate() & foe.distance > 6
-  ^& foe ! boss & summon.count = 1
+  ^& summon.count = 1 & foe ! yeti
     equip quarterstaff
     activate R
 
@@ -169,14 +169,17 @@ AAC()
     :?bar_on_cd()
       equip fire crossbow
   :?foe.GetCount(15) >= 3
-    equipL ice wand
-    equipR fire shield
+    equipL ice wand +10
+    equipR ice wand +9
   :?foe = ice pillar
     equipL fire sword +10
     equipR fire sword +9
   :?foe = ice wall
     equip fire crossbow
   :?foe = giant
+    ?foe.state = 2 & foe.time = 50
+      equip mask
+      activate R
     ?hp < maxhp
       equipL vigor sword +10
       equipR vigor sword +9
@@ -335,7 +338,7 @@ bdashstaff_use()
 lootwalk()
 armor_regen()
 blade_use()
-?harvest = Tree & harvest.distance < 10
-  equip hatchet
-?harvest = Boulder & harvest.distance < 10
-  equip shovel
+//?harvest = Tree & harvest.distance < 10
+//  equip hatchet
+//?harvest = Boulder & harvest.distance < 10
+//  equip shovel
