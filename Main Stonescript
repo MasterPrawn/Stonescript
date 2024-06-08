@@ -278,6 +278,12 @@ AAC()
       activate potion
       equip ice crossbow
   :?foe = ceiling
+    ?foe.state = 32
+    ^& item.GetCooldown(＂mind＂) <= 0
+      equipL mind
+    :?foe.distance >= 3
+      bardiche_use()
+    :
     equipL ice sword +10
     equipR ice sword +9
   :?foe.GetCount(15) >= 3
