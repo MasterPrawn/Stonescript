@@ -282,8 +282,11 @@ AAC()
     ?foe.state = 32 & bar_on_cd()
     ^& item.GetCooldown(＂mind＂) <= 0
       equipL mind
-    :?foe.distance >= 3
+    :?foe.distance <= 3
       bardiche_use()
+    :?bar_on_cd()
+      equipL ice sword +10
+      equipR ice sword +9
     :
       equipL ice sword +10
       equipR ice sword +9
