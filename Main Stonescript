@@ -42,6 +42,11 @@ func bar_on_cd()
   ^& item.GetCooldown(＂bardiche＂) < 870
     return true
 
+func ham_on_cd()
+  ?item.GetCooldown(＂hammer＂) > 0
+  ^& item.GetCooldown(＂hammer＂) < 645
+    return true
+
 func lootwalk()
   ?pickup.distance < 15
     equipL triskelion
@@ -191,25 +196,18 @@ AAC()
       ?foe.distance <= 7
         bardiche_use()
       ?foe.armor > 1 & foe.distance <= 6
-      ^& item.GetCooldown(＂bardiche＂) > 0 
-      ^& item.GetCooldown(＂bardiche＂) < 870
+      ^& bar_on_cd()
         hammer_use()
       ?foe.distance < 19 & foe.distance > 10
       ^& foe.armor > 1
         equipL aether hammer +10
         equipR aether hammer +9
       ?foe.distance < 10 & foe.armor > 1
-      ^& item.GetCooldown(＂bardiche＂) < 870
-      ^& item.GetCooldown(＂bardiche＂) > 0
-      ^& item.GetCooldown(＂hammer＂) < 645
-      ^& item.GetCooldown(＂hammer＂) > 0
+      ^& bar_on_cd() & ham_on_cd()
         equipL aether hammer +10
         equipR aether hammer +9
       ?foe.distance < 10 & foe.armor < 1
-      ^& item.GetCooldown(＂bardiche＂) < 870
-      ^& item.GetCooldown(＂bardiche＂) > 0
-      ^& item.GetCooldown(＂hammer＂) < 645
-      ^& item.GetCooldown(＂hammer＂) > 0
+      ^& bar_on_cd() & ham_on_cd()
         equipL aether sword +10
         equipR aether sword +9
       ?foe.time = 210
@@ -257,9 +255,7 @@ AAC()
       equipL mind
     :?foe = boss
       bardiche_use()
-      ?item.GetCooldown(＂bardiche＂) > 0 
-      ^& item.GetCooldown(＂bardiche＂) < 870
-      ^& foe.distance <= 10
+      ?bar_on_cd() & foe.distance <= 10
         equipL vigor sword +10
         equipR poison sword +10
     :?foe.GetCount(15) >= 3
@@ -269,13 +265,28 @@ AAC()
       equipL vigor sword +10
       equipR poison sword +10
 
+?loc = caves & summon.count = 1
+  ?foe = boss
+    bardiche_use()
+    ?bar_on_cd() & foe.distance <= 10
+      equipL ice sword +10
+      equipR vigor sword +10
+    :
+      equipL ice sword +10
+      equipR vigor sword +10
+  :?foe.GetCount(15) >= 3
+    equipL ice wand +10
+    equipR ice wand +9
+  :
+    equipL ice sword +10
+    equipR ice shield
+  
+
 ?loc = canyon & summon.count = 1
   ?foe = xyloalgia
     ?foe.state ! 32
       bardiche_use()
-      ?item.GetCooldown(＂bardiche＂) > 0 
-      ^& item.GetCooldown(＂bardiche＂) < 870
-      ^& foe.distance <= 10
+      ?bar_on_cd() & foe.distance <= 10
         equipL vigor sword +10
         equipR vigor sword +9
       :
