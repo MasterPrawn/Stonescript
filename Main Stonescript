@@ -285,8 +285,8 @@ AAC()
     :?foe.distance >= 3
       bardiche_use()
     :?bar_on_cd()
-    equipL ice sword +10
-    equipR ice sword +9
+      equipL ice sword +10
+      equipR ice sword +9
   :?foe.GetCount(15) >= 3
     equipL ice wand +10
     equipR ice wand +9
