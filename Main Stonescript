@@ -269,14 +269,10 @@ AAC()
       equipR poison sword +10
 
 ?loc = caves & summon.count = 1
-  ?foe = boss
-    bardiche_use()
-    ?bar_on_cd() & foe.distance <= 10
-      equipL ice sword +10
-      equipR vigor sword +10
-    :
-      equipL ice sword +10
-      equipR vigor sword +10
+  ?foe = bolesh
+    ?foe.state = 1
+      activate potion
+      equip ice crossbow
   :?foe.GetCount(15) >= 3
     equipL ice wand +10
     equipR ice wand +9
