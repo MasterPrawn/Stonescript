@@ -30,6 +30,8 @@
   >c-30,6,#32CD32,RDY
 ?item.GetCooldown(＂quarterstaff＂) <= 0 
   >c-40,7,#32CD32,RDY
+?item.GetCooldown(＂mind＂) <= 0 
+  >c-30,7,#32CD32,RDY
 >c-45,10,BUFFS:   @buffs.string@
 >c-45,11,DEBUFFS: @debuffs.string@
 
@@ -279,11 +281,10 @@ AAC()
       activate potion
       equip ice crossbow
   :?foe = ceiling
+    bardiche_use()
     ?foe.state = 32 & bar_on_cd()
     ^& item.GetCooldown(＂mind＂) <= 0
       equipL mind
-    :?foe.distance <= 3
-      bardiche_use()
     :?bar_on_cd()
       equipL ice sword +10
       equipR ice sword +9
