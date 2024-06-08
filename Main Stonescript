@@ -285,7 +285,7 @@ AAC()
     ?foe.state = 32 & bar_on_cd()
     ^& item.GetCooldown(＂mind＂) <= 0
       equipL mind
-    :?bar_on_cd()
+    :?bar_on_cd() & foe.distance < 10
       equipL ice sword +10
       equipR ice sword +9
     :
