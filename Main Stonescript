@@ -273,6 +273,9 @@ AAC()
     ?foe.state = 1
       activate potion
       equip ice crossbow
+  :?foe = ceiling
+    equipL ice sword +10
+    equipR ice wand +10
   :?foe.GetCount(15) >= 3
     equipL ice wand +10
     equipR ice wand +9
