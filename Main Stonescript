@@ -282,8 +282,9 @@ AAC()
       equip ice crossbow
   :?foe = ceiling
     bardiche_use()
-    ?foe.state = 32 & bar_on_cd()
+    ?foe.state = 33 & bar_on_cd()
     ^& item.GetCooldown(＂mind＂) <= 0
+    ^& foe.time = 10
       equipL mind
     :?bar_on_cd() & foe.distance < 10
       equipL ice sword +10
