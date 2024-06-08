@@ -15,7 +15,7 @@
 >c-45,6,BSH: @item.GetCooldown(＂bash＂)@
 >c-35,6,DSH: @item.GetCooldown(＂dash＂)@
 >c-45,7,STF: @item.GetCooldown(＂quarterstaff＂)@
->c-35,7,STF: @item.GetCooldown(＂mind＂)@
+>c-35,7,MND: @item.GetCooldown(＂mind＂)@
 ?item.GetCooldown(＂blade＂) <= 0 
   >c-40,4,#32CD32,RDY
 ?item.GetCooldown(＂bardiche＂) <= 0 
