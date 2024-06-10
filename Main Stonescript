@@ -172,6 +172,7 @@ AAC()
       activate potion
       equip ice crossbow
   :?foe = acronian
+    mask_use()
     equipL ice sword +10
     equipR ice sword +9
   :?foe.GetCount(15) >= 3
