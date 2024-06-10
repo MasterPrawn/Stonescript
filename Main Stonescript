@@ -85,7 +85,7 @@ func mask_use()
     activate R
  
 func blade_use()
-  ?foe.GetCount(30) > 8 & foe ! boss &
+  ?foe.GetCount(30) > 7 & foe ! boss &
   ^item.GetCooldown(＂blade＂) <= 0
     equip blade
     activate R
@@ -168,7 +168,7 @@ AAC()
   aether_summ()
 
 ?loc = temple & summon.count = 1
-  ?foe = boss
+  ?foe = nagaraja
       activate potion
       equip ice crossbow
   :?foe.GetCount(15) >= 3
