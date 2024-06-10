@@ -167,6 +167,17 @@ AAC()
 :
   aether_summ()
 
+?loc = temple & summon.count = 1
+  ?foe = boss
+      activate potion
+      equip ice crossbow
+  :?foe.GetCount(15) >= 3
+    equipL ice wand +10
+    equipR ice wand +9
+  :
+    equipL ice sword +10
+    equipR ice shield
+
 ?loc = ridge & summon.count = 1
   ?foe = yeti
     ?foe.armor > 0
