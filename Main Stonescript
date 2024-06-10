@@ -164,7 +164,7 @@ AAC()
 
 ?loc = rocky & summon.count = 0
   fire_summ()
-:?summon.count = 0
+:? summon.count = 0
   aether_summ()
 
 ?loc = temple & summon.count = 1
@@ -173,8 +173,10 @@ AAC()
       equip ice crossbow
   :?foe = acronian
     mask_use()
-    equipL ice sword +10
-    equipR ice sword +9
+    bardiche_use()
+    ?bar_on_cd()
+      equipL ice sword +10
+      equipR ice sword +9
   :?foe.GetCount(15) >= 3
     equipL ice wand +10
     equipR ice wand +9
