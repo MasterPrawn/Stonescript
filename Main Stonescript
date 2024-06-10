@@ -162,7 +162,7 @@ func AAC()
 
 AAC()
 
-?loc = rocky
+?loc = rocky & summon.count = 0
   fire_summ()
 :
   aether_summ()
