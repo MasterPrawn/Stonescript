@@ -171,6 +171,9 @@ AAC()
   ?foe = nagaraja
       activate potion
       equip ice crossbow
+  :?foe = acronian
+    equipL ice sword +10
+    equipR ice sword +9
   :?foe.GetCount(15) >= 3
     equipL ice wand +10
     equipR ice wand +9
