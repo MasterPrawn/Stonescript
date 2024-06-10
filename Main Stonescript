@@ -164,7 +164,7 @@ AAC()
 
 ?loc = rocky & summon.count = 0
   fire_summ()
-:
+:?summon.count = 0
   aether_summ()
 
 ?loc = temple & summon.count = 1
