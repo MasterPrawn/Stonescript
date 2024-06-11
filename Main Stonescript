@@ -11,7 +11,7 @@
 >c-45,4,BFG: @blade_cd@
 >c-35,4,BAR: @item.GetCooldown(＂bardiche＂)@
 >c-45,5,HAM: @item.GetCooldown(＂hammer＂)@
->c-35,5,MSK: @item.GetCooldown(＂mask＂)@
+>c-35,5,MSK: @mask_cd@
 >c-45,6,BSH: @item.GetCooldown(＂bash＂)@
 >c-35,6,DSH: @item.GetCooldown(＂dash＂)@
 >c-45,7,STF: @item.GetCooldown(＂quarterstaff＂)@
@@ -42,6 +42,12 @@ var blade_cd = item.GetCooldown(＂blade＂)
   blade_cd = ＂999+＂
 :
   blade_cd = item.GetCooldown(＂blade＂)
+
+var mask_cd = item.GetCooldown(＂mask＂)
+?item.GetCooldown(＂mask＂) > 999
+  mask_cd = ＂999+＂
+:
+  mask_cd = item.GetCooldown(＂mask＂)
 
 func bar_on_cd()
   ?item.GetCooldown(＂bardiche＂) > 0
