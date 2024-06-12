@@ -257,9 +257,12 @@ AAC()
   :?foe.distance < 17
   ^& foe.GetCount(15) >= 3
     equipL ice wand +10
-    equipR aether shield
+    equipR ice wand +9
   :?foe = bomb & foe.distance < 5
     equipL mind
+  :?foe ! boss & armor > 40
+    equipL aether sword +10
+    equipR aether sword +9
   :
     equipL aether sword +10
     equipR aether shield
