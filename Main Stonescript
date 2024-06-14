@@ -17,21 +17,21 @@
 >c-45,7,STF: @item.GetCooldown(＂quarterstaff＂)@
 >c-35,7,MND: @item.GetCooldown(＂mind＂)@
 ?item.GetCooldown(＂blade＂) <= 0 
-  >c-40,4,#32CD32,RDY
+  >c-40,4,#44D62C,RDY
 ?item.GetCooldown(＂bardiche＂) <= 0 
-  >c-30,4,#32CD32,RDY
+  >c-30,4,#44D62C,RDY
 ?item.GetCooldown(＂hammer＂) <= 0 
-  >c-40,5,#32CD32,RDY
+  >c-40,5,#44D62C,RDY
 ?item.GetCooldown(＂mask＂) <= 0 
-  >c-30,5,#32CD32,RDY
+  >c-30,5,#44D62C,RDY
 ?item.GetCooldown(＂bash＂) <= 0 
-  >c-40,6,#32CD32,RDY
+  >c-40,6,#44D62C,RDY
 ?item.GetCooldown(＂dash＂) <= 0 
-  >c-30,6,#32CD32,RDY
+  >c-30,6,#44D62C,RDY
 ?item.GetCooldown(＂quarterstaff＂) <= 0 
-  >c-40,7,#32CD32,RDY
+  >c-40,7,#44D62C,RDY
 ?item.GetCooldown(＂mind＂) <= 0 
-  >c-30,7,#32CD32,RDY
+  >c-30,7,#44D62C,RDY
 >c-45,10,BUFFS:   @buffs.string@
 >c-45,11,DEBUFFS: @debuffs.string@
 
