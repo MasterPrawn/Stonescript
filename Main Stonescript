@@ -130,7 +130,7 @@ func armor_regen()
   ^& summon.count = 1
     equipL triskelion
     equipR compound shield +12
-  ?armor <= 24 & armor >= 14
+  ?armor <= 26 & armor >= 14
   ^& foe.distance > 23
   ^& summon.count = 1
     equipL triskelion
