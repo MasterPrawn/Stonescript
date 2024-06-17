@@ -205,7 +205,7 @@ AAC()
     equipL ice wand +10
     equipR ice wand +9
   :?foe = ice pillar
-    equipL fire sword +10
+    equipL fire sword +15
     equipR fire sword +9
   :?foe = ice wall
     equip fire crossbow
@@ -217,10 +217,10 @@ AAC()
       equipL vigor sword +10
       equipR vigor sword +9
     :
-      equipL fire sword +10
+      equipL fire sword +15
       equipR fire sword +9
   :
-    equipL fire sword +10
+    equipL fire sword +15
     equipR fire shield
 
 ?loc = mine & summon.count = 1
@@ -360,7 +360,7 @@ AAC()
       equipL vigor sword +10
       equipR vigor sword +9
     :?foe = ice
-      equipL fire sword +10
+      equipL fire sword +15
       equipR fire sword +9
     :?foe = fire
       equipL aether sword +10
