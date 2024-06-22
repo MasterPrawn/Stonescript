@@ -207,7 +207,8 @@ AAC()
     equipR mask
   ?foe.distance < 10
     equipR fire shield
-  ?foe = ice pillar
+  ?foe = ice pillar | foe = giant
+  ^| foe = ice wall
     equipR mask
   ?foe = yeti
     equipL fire wand
