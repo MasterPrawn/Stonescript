@@ -231,13 +231,13 @@ AAC()
     bardiche_use()
     ?bar_on_cd()
       equipL @sword1@
-      equipR @icesword2@
+      equipR @sword2@
   :?foe.GetCount(15) >= 3
     equipL @icewand1@
     equipR @icewand2@
   :?foe ! boss & armor > 40
     equipL @sword1@
-    equipR @icesword2@
+    equipR @sword2@
   :
     equipL @sword1@
     equipR ice shield
