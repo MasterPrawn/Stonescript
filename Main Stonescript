@@ -209,6 +209,7 @@ AAC()
     equipR fire shield
   ?foe = ice pillar | foe = giant
   ^| foe = ice wall
+    equipL fire sword +15
     equipR mask
   ?foe = yeti
     equipL fire wand
