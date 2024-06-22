@@ -203,11 +203,13 @@ AAC()
     brew wood + bronze
     equipR mask
   ?summon.count = 1
-    activate potion
     equipL vigor big sword dL
     equipR mask
-  ?foe.distance = 23
+  ?foe.distance = 20
     equipR fire shield
+  ?foe = yeti
+    equipL vigor wand +10
+  activate potion
 
 :?loc = ridge & loopCount > 0 & summon.count = 1
     ?foe = yeti
