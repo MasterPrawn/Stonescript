@@ -130,18 +130,19 @@ func fire_summ()
     activate R
 
 func armor_regen()
-  ?armor < 14 & foe.distance > 23
-  ^& summon.count = 1
-    equipL triskelion
-    equipR compound shield +12
-  ?armor <= 26 & armor >= 14
-  ^& foe.distance > 23
-  ^& summon.count = 1
-    equipL triskelion
-    equipR compound shield +11
-  ?pickup.distance < 15
-    equipL star
-    equipR compound shield +12
+  ?loopCount > 0
+    ?armor < 14 & foe.distance > 23
+    ^& summon.count = 1
+      equipL triskelion
+      equipR compound shield +12
+    ?armor <= 26 & armor >= 14
+    ^& foe.distance > 23
+    ^& summon.count = 1
+      equipL triskelion
+      equipR compound shield +11
+    ?pickup.distance < 15
+      equipL star
+      equipR compound shield +12
 
 //============================================//
 
@@ -198,16 +199,15 @@ AAC()
     equipR ice shield
 
 ?loc = ridge & loopCount = 0
-  ?loopCount = 0
-    ?loc.begin
-      brew wood + bronze
-      equipR mask
-    ?summon_count = 1
-      activate potion
-      equipL vigor big sword dL
-      equipR mask
-    ?foe.distance = 23
-      equipR fire shield
+  ?loc.begin
+    brew wood + bronze
+    equipR mask
+  ?summon.count = 1
+    activate potion
+    equipL vigor big sword dL
+    equipR mask
+  ?foe.distance = 23
+    equipR fire shield
 
 :?loc = ridge & loopCount > 0 & summon.count = 1
     ?foe = yeti
