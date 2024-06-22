@@ -210,7 +210,7 @@ AAC()
     equipR ice wand +9
   :?foe = ice pillar
     equipL fire sword +15
-    equipR fire sword +9
+    equipR fire sword +10
   :?foe = ice wall
     equip fire crossbow
   :?foe = giant
@@ -222,7 +222,7 @@ AAC()
       equipR vigor sword +9
     :
       equipL fire sword +15
-      equipR fire sword +9
+      equipR fire sword +10
   :
     equipL fire sword +15
     equipR fire shield
