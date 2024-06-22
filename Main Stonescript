@@ -174,6 +174,10 @@ func AAC()
 
 AAC()
 
+?loc.begin
+  ?loc = ridge
+    brew wood + bronze
+
 ?loc = rocky & summon.count = 0
   fire_summ()
 :? summon.count = 0
@@ -200,15 +204,12 @@ AAC()
     equipR ice shield
 
 ?loc = ridge & loopCount = 0
-  ?loc.begin
-    brew wood + bronze
   ?summon.count = 1
     equipL vigor big sword dL
     equipR mask
   ?foe.distance < 15 & foe ! yeti
     equipR fire shield
-  ?foe = ice pillar | foe = giant
-  ^| foe = ice wall
+  ?foe = giant | foe = ice wall
     equipL fire sword +15
     equipR mask
   ?foe = yeti
@@ -216,9 +217,7 @@ AAC()
   activate potion
 
 :?loc = ridge & loopCount > 0
-  ?loc.begin
-    brew wood + bronze
-    activate potion
+  activate potion
   ?summon.count = 1
     ?foe = yeti
       ?foe.armor > 0
