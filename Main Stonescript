@@ -1,7 +1,7 @@
 var poisonsword1 = poison sword +10
 var poisonsword2 = poison sword +7
 var vigorsword1 = vigor sword +9
-var vigorsword2 = vigor sword +2
+var vigorsword2 = vigor sword +6
 var aethersword1 = aether sword +10
 var aethersword2 = aether sword +9
 var firesword1 = fire sword +15
@@ -14,6 +14,20 @@ var icewand1 = ice wand +10
 var icewand2 = ice wand +9
 var regenshield1 = compound shield +15
 var regenshield2 = compound shield +12
+
+var sword1 = @sword1_ele_check@
+
+func sword1_ele_check
+  ?foe = poison
+    return "icesword1"
+  :?foe = vigor
+    return "poisonsword1"
+  :?foe = aether
+    return "vigorsword1"
+  :?foe = fire
+    return "aethersword1"
+  :?foe = ice
+    return "firesword1"
 
 //============================================//
 
@@ -152,15 +166,15 @@ func armor_regen()
   ?armor < 14 & foe.distance > 23
   ^& summon.count = 1
     equipL triskelion
-    equipR compound shield +15
+    equipR @regenshield1@
   ?armor <= 26 & armor >= 14
   ^& foe.distance > 23
   ^& summon.count = 1
     equipL triskelion
-    equipR compound shield +11
+    equipR @regenshield2@
   ?pickup.distance < 15
     equipL star
-    equipR compound shield +15
+    equipR @regenshield1@
 
 //============================================//
 
@@ -204,16 +218,16 @@ AAC()
     mask_use()
     bardiche_use()
     ?bar_on_cd()
-      equipL ice sword +10
-      equipR ice sword +9
+      equipL @sword1@
+      equipR @icesword2@
   :?foe.GetCount(15) >= 3
-    equipL ice wand +10
-    equipR ice wand +9
+    equipL @icewand1@
+    equipR @icewand2@
   :?foe ! boss & armor > 40
-    equipL ice sword +10
-    equipR ice sword +9
+    equipL @sword1@
+    equipR @icesword2@
   :
-    equipL ice sword +10
+    equipL @sword1@
     equipR ice shield
 
 ?loc = ridge & summon.count = 1
@@ -225,8 +239,8 @@ AAC()
     :?bar_on_cd()
       equip fire crossbow
   :?foe.GetCount(15) >= 3
-    equipL ice wand +10
-    equipR ice wand +9
+    equipL @icewand1@
+    equipR @icewand2@
   :?foe = ice pillar
     equipL fire sword +15
     equipR fire sword +10
@@ -279,8 +293,8 @@ AAC()
     equip aether crossbow
   :?foe.distance < 17
   ^& foe.GetCount(15) >= 3
-    equipL ice wand +10
-    equipR ice wand +9
+    equipL @icewand1@
+    equipR @icewand2@
   :?foe = bomb & foe.distance < 5
     equipL mind
   :?foe ! boss & armor > 40
@@ -293,8 +307,8 @@ AAC()
 ?loc = halls & summon.count = 1
   ?foe.GetCount(15) >= 3 | foe = ghost
   ^& foe.distance <= 15
-    equipL ice wand +10
-    equipR ice wand +9
+    equipL @icewand1@
+    equipR @icewand2@
   :?foe = pallas
     ?foe.state = 2 & foe = legless
       activate potion
@@ -305,8 +319,8 @@ AAC()
       equipR vigor sword +9
     ?foe.GetCount(15) >= 3 | foe = ghost
     ^& foe.distance <= 15
-      equipL ice wand +10
-      equipR ice wand +9
+      equipL @icewand1@
+      equipR @icewand2@
   :
     equipL vigor sword +10
     equipR vigor sword +9
@@ -321,8 +335,8 @@ AAC()
         equipL vigor sword +10
         equipR poison sword +10
     :?foe.GetCount(15) >= 3
-      equipL ice wand +10
-      equipR ice wand +9
+      equipL @icewand1@
+      equipR @icewand2@
     :
       equipL vigor sword +10
       equipR poison sword +10
@@ -337,15 +351,15 @@ AAC()
     ?foe.state = 2 & bar_on_cd()
     ^& item.GetCooldown(＂mind＂) <= 0
       equipL mind
-      equipR ice sword +10
+      equipR @icesword1@
     :?bar_on_cd() & foe.distance < 10
-      equipL ice sword +10
-      equipR ice sword +9
+      equipL @icesword1@
+      equipR @icesword2@
   :?foe.GetCount(15) >= 3
-    equipL ice wand +10
-    equipR ice wand +9
+    equipL @icewand1@
+    equipR @icewand2@
   :
-    equipL ice sword +10
+    equipL @icesword1@
     equipR ice shield
   
 
@@ -365,8 +379,8 @@ AAC()
     equipL aether hammer +10
     equipR aether hammer +9
   :?foe = wasp & foe.distance <= 15
-    equipL ice wand +10
-    equipR ice wand +9
+    equipL @icewand1@
+    equipR @icewand2@
   :?foe.distance <= 15
     equipL vigor sword +10
     equipR vigor sword +9
@@ -389,8 +403,8 @@ AAC()
       equipL aether sword +10
       equipR aether sword +9
     :?foe = poison
-      equipL ice wand +10
-      equipR ice wand +9
+      equipL @icewand1@
+      equipR @icewand2@
     :?foe = vigor
       equipL poison sword +10
       equipR poison wand +10
