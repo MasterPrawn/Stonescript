@@ -1,3 +1,22 @@
+var poisonsword1 = poison sword +10
+var poisonsword2 = poison sword +7
+var vigorsword1 = vigor sword +9
+var vigorsword2 = vigor sword +2
+var aethersword1 = aether sword +10
+var aethersword2 = aether sword +9
+var firesword1 = fire sword +15
+var firesword2 = fire sword +10
+var icesword1 = ice sword +10
+var icesword2 = ice sword +9
+var aetherhammer1 = aether hammer +10
+var aetherhammer2 = aether hammer +9
+var icewand1 = ice wand +10
+var icewand2 = ice wand +9
+var regenshield1 = compound shield +15
+var regenshield2 = compound shield +12
+
+//============================================//
+
 >c-45,-7,== LVL TIMES ==
 >c-45,-6,BST: @loc.bestTime@
 >c-45,-5,AVG: @loc.averageTime@
