@@ -64,13 +64,14 @@ func ham_on_cd()
     return true
 
 func lootwalk()
-  ?pickup.distance < 15 & summon.count = 1
-    equipL triskelion
-    equipR star
-  ?foe.distance > 23 & armor > 24
-  ^& summon.count = 1
-    equipL triskelion
-    equipR quest
+  ?loopCount > 0
+    ?pickup.distance < 15 & summon.count = 1
+      equipL triskelion
+      equipR star
+    ?foe.distance > 23 & armor > 24
+    ^& summon.count = 1
+      equipL triskelion
+      equipR quest
 
 func bardiche_use()
   ?foe.distance <= 10 & item.CanActivate()
@@ -205,10 +206,10 @@ AAC()
   ?summon.count = 1
     equipL vigor big sword dL
     equipR mask
-  ?foe.distance = 20
+  ?foe.distance < 10
     equipR fire shield
   ?foe = yeti
-    equipL vigor wand +10
+    equipL fire wand
   activate potion
 
 :?loc = ridge & loopCount > 0 & summon.count = 1
