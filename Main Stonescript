@@ -64,14 +64,13 @@ func ham_on_cd()
     return true
 
 func lootwalk()
-  ?loopCount > 0
-    ?pickup.distance < 15 & summon.count = 1
-      equipL triskelion
-      equipR star
-    ?foe.distance > 23 & armor > 24
-    ^& summon.count = 1
-      equipL triskelion
-      equipR quest
+  ?pickup.distance < 15 & summon.count = 1
+    equipL triskelion
+    equipR star
+  ?foe.distance > 23 & armor > 24
+  ^& summon.count = 1
+    equipL triskelion
+    equipR quest
 
 func bardiche_use()
   ?foe.distance <= 10 & item.CanActivate()
@@ -131,19 +130,18 @@ func fire_summ()
     activate R
 
 func armor_regen()
-  ?loopCount > 0
-    ?armor < 14 & foe.distance > 23
-    ^& summon.count = 1
-      equipL triskelion
-      equipR compound shield +12
-    ?armor <= 26 & armor >= 14
-    ^& foe.distance > 23
-    ^& summon.count = 1
-      equipL triskelion
-      equipR compound shield +11
-    ?pickup.distance < 15
-      equipL star
-      equipR compound shield +12
+  ?armor < 14 & foe.distance > 23
+  ^& summon.count = 1
+    equipL triskelion
+    equipR compound shield +15
+  ?armor <= 26 & armor >= 14
+  ^& foe.distance > 23
+  ^& summon.count = 1
+    equipL triskelion
+    equipR compound shield +11
+  ?pickup.distance < 15
+    equipL star
+    equipR compound shield +15
 
 //============================================//
 
@@ -174,10 +172,6 @@ func AAC()
 
 AAC()
 
-?loc.begin
-  ?loc = ridge
-    brew stone + bronze
-
 ?loc = rocky & summon.count = 0
   fire_summ()
 :? summon.count = 0
@@ -203,50 +197,35 @@ AAC()
     equipL ice sword +10
     equipR ice shield
 
-?loc = ridge & loopCount = 0
-  ?summon.count = 1
-    equipL fire sword +15
-    equipR mask
-  ?foe.distance < 15 & foe ! yeti
-    equipR fire shield
-  ?foe = giant | foe = ice wall
-    equipL fire sword +15
-    equipR mask
+?loc = ridge & summon.count = 1
   ?foe = yeti
-    equipL fire wand
-  activate potion
-
-:?loc = ridge & loopCount > 0
-  activate potion
-  ?summon.count = 1
-    ?foe = yeti
-      ?foe.armor > 0
-        bardiche_use()
-      ?foe.state = 132
-        activate potion
-      :?bar_on_cd()
-        equip fire crossbow
-    :?foe.GetCount(15) >= 3
-      equipL ice wand +10
-      equipR ice wand +9
-    :?foe = ice pillar
-      equipL fire sword +15
-      equipR fire sword +9
-    :?foe = ice wall
+    ?foe.armor > 0
+      bardiche_use()
+    ?foe.state = 132
+      activate potion
+    :?bar_on_cd()
       equip fire crossbow
-    :?foe = giant
-      ?foe.state = 2 & foe.time = 50
-        equip mask
-        activate R
-      ?hp < maxhp
-        equipL vigor sword +10
-        equipR vigor sword +9
-      :
-        equipL fire sword +15
-        equipR fire sword +9
+  :?foe.GetCount(15) >= 3
+    equipL ice wand +10
+    equipR ice wand +9
+  :?foe = ice pillar
+    equipL fire sword +15
+    equipR fire sword +9
+  :?foe = ice wall
+    equip fire crossbow
+  :?foe = giant
+    ?foe.state = 2 & foe.time = 50
+      equip mask
+      activate R
+    ?hp < maxhp
+      equipL vigor sword +10
+      equipR vigor sword +9
     :
       equipL fire sword +15
-      equipR fire shield
+      equipR fire sword +9
+  :
+    equipL fire sword +15
+    equipR fire shield
 
 ?loc = mine & summon.count = 1
   ?foe = guardian
