@@ -205,7 +205,7 @@ AAC()
   ?summon.count = 1
     equipL vigor big sword dL
     equipR mask
-  ?foe.distance < 10
+  ?foe.distance < 10 & foe ! yeti
     equipR fire shield
   ?foe = ice pillar | foe = giant
   ^| foe = ice wall
