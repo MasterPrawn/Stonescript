@@ -15,9 +15,10 @@ var icewand2 = ice wand +9
 var regenshield1 = compound shield +15
 var regenshield2 = compound shield +12
 
-var sword1 = @sword1_ele_check@
+var sword1 = @sword1_ele_check()@
+var sword2 = @sword2_ele_check()@
 
-func sword1_ele_check
+func sword1_ele_check()
   ?foe = poison
     return "icesword1"
   :?foe = vigor
@@ -29,7 +30,7 @@ func sword1_ele_check
   :?foe = ice
     return "firesword1"
 
-func sword2_ele_check
+func sword2_ele_check()
   ?foe = poison
     return "icesword2"
   :?foe = vigor
