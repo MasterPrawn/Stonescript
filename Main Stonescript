@@ -29,6 +29,8 @@ func sword1_ele_check()
     return "aethersword1"
   :?foe = ice
     return "firesword1"
+  :
+    return "vigorsword1"
 
 func sword2_ele_check()
   ?foe = poison
@@ -41,6 +43,8 @@ func sword2_ele_check()
     return "aethersword2"
   :?foe = ice
     return "firesword2"
+  :
+    return "vigorsword2"
 
 //============================================//
 
@@ -255,8 +259,8 @@ AAC()
     equipL @icewand1@
     equipR @icewand2@
   :?foe = ice pillar
-    equipL fire sword +15
-    equipR fire sword +10
+    equipL @sword1@
+    equipR @sword2@
   :?foe = ice wall
     equip fire crossbow
   :?foe = giant
@@ -264,13 +268,13 @@ AAC()
       equip mask
       activate R
     ?hp < maxhp
-      equipL vigor sword +10
-      equipR vigor sword +9
+      equipL @vigorsword1@
+      equipR @vigorsword2@
     :
-      equipL fire sword +15
-      equipR fire sword +10
+      equipL @sword1@
+      equipR @sword2@
   :
-    equipL fire sword +15
+    equipL @sword1@
     equipR fire shield
 
 ?loc = mine & summon.count = 1
@@ -286,16 +290,16 @@ AAC()
         hammer_use()
       ?foe.distance < 19 & foe.distance > 10
       ^& foe.armor > 1
-        equipL aether hammer +10
-        equipR aether hammer +9
+        equipL @aetherhammer1@
+        equipR @aetherhammer2@
       ?foe.distance < 10 & foe.armor > 1
       ^& bar_on_cd() & ham_on_cd()
-        equipL aether hammer +10
-        equipR aether hammer +9
+        equipL @aetherhammer1@
+        equipR @aetherhammer2@
       ?foe.distance < 10 & foe.armor < 1
       ^& bar_on_cd() & ham_on_cd()
-        equipL aether sword +10
-        equipR aether sword +9
+        equipL @sword1@
+        equipR @sword2@
       ?foe.time = 210
         equip aether crossbow
     :?foe.state = 32 & foe.time = 25
@@ -311,10 +315,10 @@ AAC()
   :?foe = bomb & foe.distance < 5
     equipL mind
   :?foe ! boss & armor > 40
-    equipL aether sword +10
-    equipR aether sword +9
+    equipL @sword1@
+    equipR @sword2@
   :
-    equipL aether sword +10
+    equipL @sword1@
     equipR aether shield
 
 ?loc = halls & summon.count = 1
@@ -328,15 +332,15 @@ AAC()
     ?foe.distance <= 7
       bardiche_use()
     ?bar_on_cd()
-      equipL vigor sword +10
-      equipR vigor sword +9
+      equipL @sword1@
+      equipR @sword2@
     ?foe.GetCount(15) >= 3 | foe = ghost
     ^& foe.distance <= 15
       equipL @icewand1@
       equipR @icewand2@
   :
-    equipL vigor sword +10
-    equipR vigor sword +9
+    equipL @sword1@
+    equipR @sword2@
 
 ?loc = forest & summon.count = 1
   ?foe.distance <= 15
@@ -345,14 +349,14 @@ AAC()
     :?foe = boss
       bardiche_use()
       ?bar_on_cd() & foe.distance <= 10
-        equipL vigor sword +10
-        equipR poison sword +10
+        equipL @sword1@
+        equipR @sword2@
     :?foe.GetCount(15) >= 3
       equipL @icewand1@
       equipR @icewand2@
     :
-      equipL vigor sword +10
-      equipR poison sword +10
+      equipL @sword1@
+      equipR @sword2@
 
 ?loc = caves & summon.count = 1
   ?foe = bolesh
@@ -364,15 +368,15 @@ AAC()
     ?foe.state = 2 & bar_on_cd()
     ^& item.GetCooldown(＂mind＂) <= 0
       equipL mind
-      equipR @icesword1@
+      equipR @sword1@
     :?bar_on_cd() & foe.distance < 10
-      equipL @icesword1@
-      equipR @icesword2@
+      equipL @sword1@
+      equipR @sword2@
   :?foe.GetCount(15) >= 3
     equipL @icewand1@
     equipR @icewand2@
   :
-    equipL @icesword1@
+    equipL @sword1@
     equipR ice shield
   
 
@@ -381,27 +385,27 @@ AAC()
     ?foe.state ! 32
       bardiche_use()
       ?bar_on_cd() & foe.distance <= 10
-        equipL vigor sword +10
-        equipR vigor sword +9
+        equipL @sword1@
+        equipR @sword2@
       :
-        equipL vigor sword +10
-        equipR vigor sword +9
+        equipL @sword1@
+        equipR @sword2@
     :?foe.state = 32 & foe.time = 30
       equipL mind
   :?foe = poena
-    equipL aether hammer +10
-    equipR aether hammer +9
+    equipL @aetherhammer1@
+    equipR @aetherhammer2@
   :?foe = wasp & foe.distance <= 15
     equipL @icewand1@
     equipR @icewand2@
   :?foe.distance <= 15
-    equipL vigor sword +10
-    equipR vigor sword +9
+    equipL @sword1@
+    equipR @sword2@
     ?foe.GetCount(15) >= 3
       equip skeleton arm
   :
-    equipL vigor sword +10
-    equipR vigor sword +9
+    equipL @sword1@
+    equipR @sword2@
 
 ?loc = rocky & summon.count = 1
   bardiche_use()
