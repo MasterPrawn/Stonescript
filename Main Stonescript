@@ -176,7 +176,7 @@ AAC()
 
 ?loc.begin
   ?loc = ridge
-    brew wood + bronze
+    brew stone + bronze
 
 ?loc = rocky & summon.count = 0
   fire_summ()
@@ -205,7 +205,7 @@ AAC()
 
 ?loc = ridge & loopCount = 0
   ?summon.count = 1
-    equipL vigor big sword dL
+    equipL fire sword +15
     equipR mask
   ?foe.distance < 15 & foe ! yeti
     equipR fire shield
