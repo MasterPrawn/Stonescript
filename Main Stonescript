@@ -29,6 +29,18 @@ func sword1_ele_check
   :?foe = ice
     return "firesword1"
 
+func sword2_ele_check
+  ?foe = poison
+    return "icesword2"
+  :?foe = vigor
+    return "poisonsword2"
+  :?foe = aether
+    return "vigorsword2"
+  :?foe = fire
+    return "aethersword2"
+  :?foe = ice
+    return "firesword2"
+
 //============================================//
 
 >c-45,-7,== LVL TIMES ==
