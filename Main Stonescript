@@ -202,9 +202,10 @@ AAC()
     ?loc.begin
       brew wood + bronze
       equipR mask
+    ?summon_count = 1
       activate potion
-    equipL ice wand +10
-    equipR mask
+      equipL vigor big sword dL
+      equipR mask
     ?foe.distance = 23
       equipR fire shield
 
