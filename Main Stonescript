@@ -202,11 +202,13 @@ AAC()
 ?loc = ridge & loopCount = 0
   ?loc.begin
     brew wood + bronze
+  ?summon.count = 1
+    equipL vigor big sword dL
+    equipR mask
   ?foe.distance < 10
     equipR fire shield
-  ?summon.count = 1 | foe = ice pillar
-  equipL vigor big sword dL
-  equipR mask
+  ?foe = ice pillar
+    equipR mask
   ?foe = yeti
     equipL fire wand
   activate potion
