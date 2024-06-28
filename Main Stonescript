@@ -11,7 +11,7 @@ var icesword2 = "ice sword +9"
 var aetherhammer1 = "aether hammer +10"
 var aetherhammer2 = "aether hammer +9"
 var icewand1 = "ice wand +15"
-var icewand2 = "ice wand +13"
+var icewand2 = "ice wand +14"
 var regenshield1 = "compound shield +15"
 var regenshield2 = "compound shield +14"
 
