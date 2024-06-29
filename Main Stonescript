@@ -1,6 +1,6 @@
 var poisonsword1 = "poison sword +11"
 var poisonsword2 = "poison sword +10"
-var vigorsword1 = "vigor sword +10"
+var vigorsword1 = "vigor sword +13"
 var vigorsword2 = "vigor sword +9"
 var aethersword1 = "aether sword +10"
 var aethersword2 = "aether sword +9"
