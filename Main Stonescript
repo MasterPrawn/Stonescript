@@ -424,22 +424,22 @@ AAC()
         equipL @vsword1@
         equipR @vsword2@
   ?foe = perfected
+    ?foe.damage = 1
+      hammer_use()
     bardiche_use()
     ?bar_on_cd()
-      ?foe.damage = 1
-        hammer_use()
       ?ham_in_use() = false
         ?foe.debuffs.string ! "chill:6"
           equipL @iwand1@
           equipR @iwand2@
-      ?foe.state = 115 & foe.time = 50
-        equipR mind
-      ?foe.buffs.string = "adaptive_defense_vigor"
-        equipL @ahammer1@
-        equipR @ahammer2@
-      :
-        equipL @vsword1@
-        equipR @vsword2@
+        ?foe.state = 115 & foe.time = 50
+          equipR mind
+        ?foe.buffs.string = "adaptive_defense_vigor"
+          equipL @ahammer1@
+          equipR @ahammer2@
+        :
+          equipL @vsword1@
+          equipR @vsword2@
 
 bdashstaff_use()
 lootwalk()
