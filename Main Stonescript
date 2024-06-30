@@ -435,10 +435,10 @@ AAC()
         ?foe.state = 115 & foe.time = 50
           equipR mind
         ?foe.buffs.string = "adaptive_defense_vigor"
-          ?foe.armor > 0
+          ?foe.armor > 1
             equipL @ahammer1@
             equipR @ahammer2@
-          :
+          :?foe.armor < 1
             equipL @fsword1@
             equipR @fsword2@
         :
