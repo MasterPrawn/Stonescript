@@ -84,6 +84,10 @@ func ham_on_cd()
   ^& item.GetCooldown(＂hammer＂) < 645
     return true
 
+func ham_in_use()
+  ?item.GetCooldown(＂hammer＂) > 645
+    return true
+
 func lootwalk()
   ?pickup.distance < 15 & summon.count = 1
     equipL triskelion
@@ -422,9 +426,12 @@ AAC()
   ?foe = perfected
     bardiche_use()
     ?bar_on_cd()
-      ?foe.debuffs.string ! "chill:6"
-        equipL @iwand1@
-        equipR @iwand2@
+      ?foe.damage = 1
+        hammer_use()
+      ?ham_in_use() = false
+        ?foe.debuffs.string ! "chill:6"
+          equipL @iwand1@
+          equipR @iwand2@
       ?foe.damage = 1
         hammer_use()
       ?foe.state = 115 & foe.time = 50
