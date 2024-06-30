@@ -81,7 +81,7 @@ func bar_on_cd()
 
 func ham_on_cd()
   ?item.GetCooldown(＂hammer＂) > 0
-  ^& item.GetCooldown(＂hammer＂) < 645
+  ^& item.GetCooldown(＂hammer＂) < 640
     return true
 
 func ham_in_use()
@@ -109,7 +109,7 @@ func bardiche_use()
 func hammer_use()
   ?foe.distance <= 7 & item.CanActivate()
   ^& item.GetCooldown(＂hammer＂) <= 0
-  ^| item.GetCooldown(＂hammer＂) > 645
+  ^| item.GetCooldown(＂hammer＂) > 640
   ^& item.GetCooldown(＂bardiche＂) > 0
     equip heavy hammer
     activate R
