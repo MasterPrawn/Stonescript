@@ -87,6 +87,8 @@ func ham_on_cd()
 func ham_in_use()
   ?item.GetCooldown(＂hammer＂) > 645
     return true
+  :
+    return false
 
 func lootwalk()
   ?pickup.distance < 15 & summon.count = 1
