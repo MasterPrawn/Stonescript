@@ -427,7 +427,7 @@ AAC()
         equipR @vsword2@
   ?foe = perfected
     ?foe.state = 115 & foe.time = 50
-      equipR mind
+      equipL mind
     ?foe.damage = 1
       hammer_use()
     bardiche_use()
