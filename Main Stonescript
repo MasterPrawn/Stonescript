@@ -381,17 +381,28 @@ AAC()
   ?foe = acronian
     bardiche_use()
     ?bar_on_cd()
-      equipL @vsword1@
-      equipR @vsword2@
+      ?foe.debuffs.string ! "chill:6"
+        equipL @iwand1@
+        equipR @iwand2@
+      :
+        equipL @vsword1@
+        equipR @vsword2@
   ?foe = bearer
     bardiche_use()
     ?bar_on_cd()
-      equipL @vsword1@
-      equipR @vsword2@
+      ?foe.debuffs.string ! "chill:6"
+        equipL @iwand1@
+        equipR @iwand2@
+      :
+        equipL @vsword1@
+        equipR @vsword2@
   ?foe = elements
     bardiche_use()
     ?bar_on_cd()
-      ?foe = ice
+      ?foe.debuffs.string ! "chill:6"
+        equipL @iwand1@
+        equipR @iwand2@
+      :?foe = ice
         equipL @fsword1@
         equipR @fsword2@
       :?foe = fire
@@ -409,8 +420,12 @@ AAC()
   ?foe = perfected
     bardiche_use()
     ?bar_on_cd()
-      equipL @fsword1@
-      equipR @fsword2@
+      ?foe.debuffs.string ! "chill:6"
+        equipL @iwand1@
+        equipR @iwand2@
+      :
+        equipL @vsword1@
+        equipR @vsword2@
 
 bdashstaff_use()
 lootwalk()
