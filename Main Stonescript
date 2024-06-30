@@ -426,8 +426,6 @@ AAC()
         equipL @vsword1@
         equipR @vsword2@
   ?foe = perfected
-    ?foe.state = 115 & foe.time = 50
-      equipL mind
     ?foe.damage = 1
       hammer_use()
     bardiche_use()
@@ -445,10 +443,12 @@ AAC()
           :?foe.armor < 1
             equipL @fsword1@
             equipR @fsword2@
-        :
+        ?hp < maxhp
           equipL @vsword1@
           equipR @vsword2@
-
+        ?hp = maxhp
+          equipL @fsword1@
+          equipR @fsword2@
 bdashstaff_use()
 lootwalk()
 armor_regen()
