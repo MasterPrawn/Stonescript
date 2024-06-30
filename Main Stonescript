@@ -53,6 +53,7 @@ var regenshield2 = "compound shield +14"
   >c-30,7,#44D62C,RDY
 >c-45,10,BUFFS:   @buffs.string@
 >c-45,11,DEBUFFS: @debuffs.string@
+>c-45,9,@foe.debuffs.string@
 
 //============================================//
 
