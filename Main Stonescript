@@ -53,7 +53,8 @@ var regenshield2 = "compound shield +14"
   >c-30,7,#44D62C,RDY
 >c-45,10,BUFFS:   @buffs.string@
 >c-45,11,DEBUFFS: @debuffs.string@
->c-45,9,@foe.debuffs.string@
+>c-45,9,foe debuff:@foe.debuffs.string@
+>c-45,8,foe buff:  @foe.debuffs.string@
 
 //============================================//
 
@@ -423,6 +424,8 @@ AAC()
       ?foe.debuffs.string ! "chill:6"
         equipL @iwand1@
         equipR @iwand2@
+      ?foe.state = 32 & foe.time = 50
+        hammer_use()
       :
         equipL @vsword1@
         equipR @vsword2@
