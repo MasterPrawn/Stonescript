@@ -401,6 +401,7 @@ AAC()
     bardiche_use()
     ?bar_on_cd()
       ?foe.debuffs.string ! "chill:6"
+      ^& foe.buffs.string ! "buff_protection"
         equipL @iwand1@
         equipR @iwand2@
       :?foe = ice
