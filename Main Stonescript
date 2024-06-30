@@ -426,11 +426,11 @@ AAC()
         equipL @vsword1@
         equipR @vsword2@
   ?foe = perfected
-    ?foe.damage = 1
-      hammer_use()
     bardiche_use()
     ?bar_on_cd()
       ?ham_in_use() = false
+        ?foe.damage = 1
+          hammer_use()
         ?foe.debuffs.string ! "chill:6"
           equipL @iwand1@
           equipR @iwand2@
