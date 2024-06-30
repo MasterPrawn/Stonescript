@@ -85,7 +85,7 @@ func ham_on_cd()
     return true
 
 func ham_in_use()
-  ?item.GetCooldown(＂hammer＂) > 645
+  ?item.GetCooldown(＂hammer＂) > 640
     return true
   :
     return false
@@ -426,6 +426,8 @@ AAC()
         equipL @vsword1@
         equipR @vsword2@
   ?foe = perfected
+    ?foe.state = 115 & foe.time = 50
+      equipR mind
     ?foe.damage = 1
       hammer_use()
     bardiche_use()
@@ -434,8 +436,6 @@ AAC()
         ?foe.debuffs.string ! "chill:6"
           equipL @iwand1@
           equipR @iwand2@
-        ?foe.state = 115 & foe.time = 50
-          equipR mind
         ?foe.buffs.string = "adaptive_defense_vigor"
           ?foe.armor > 1
             equipL @ahammer1@
