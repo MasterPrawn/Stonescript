@@ -433,7 +433,7 @@ AAC()
       ?foe.debuffs.string ! "chill:6"
         equipL @iwand1@
         equipR @iwand2@
-      ?foe.buffs.string = "adaptive_defense_vigor"
+      ?foe.buffs.string = "adaptive_defense"
         ?foe.state = 115 & foe.time = 50
           equipL mind
         ?foe.armor > 1
