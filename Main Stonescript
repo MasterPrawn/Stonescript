@@ -441,7 +441,7 @@ AAC()
       :?foe.debuffs.string ! "chill:6"
         equipL @iwand1@
         equipR @iwand2@
-      :?foe.buffs.string = "adaptive_defense_fire"
+      :?foe.buffs.string = "adaptive_defense_fire:1"
         ?foe.armor > 1
           equipL @ahammer1@
           equipR @ahammer2@
