@@ -1,7 +1,7 @@
 var psword1 = "poison sword +11"
 var psword2 = "poison sword +10"
 var vsword1 = "vigor sword +15"
-var vsword2 = "vigor sword +10"
+var vsword2 = "vigor sword +12"
 var asword1 = "aether sword +11"
 var asword2 = "aether sword +9"
 var fsword1 = "fire sword +15"
@@ -442,12 +442,6 @@ AAC()
         ?foe.armor < 1
           equipL @fsword1@
           equipR @fsword2@
-      ?hp < maxhp
-        equipL @vsword1@
-        equipR @vsword2@
-      ?hp = maxhp
-        equipL @fsword1@
-        equipR @fsword2@
 bdashstaff_use()
 lootwalk()
 armor_regen()
