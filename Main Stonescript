@@ -427,7 +427,9 @@ AAC()
         equipR @vsword2@
   ?foe = perfected
     bardiche_use()
-    ?bar_on_cd()
+    ?foe.damage = 1
+      hammer_use()
+    ?bar_on_cd() & ham_on_cd()
       ?foe.state = 115 & foe.time = 50
         equipL mind
       :?foe.damage = 1
@@ -440,8 +442,8 @@ AAC()
           equipL @ahammer1@
           equipR @ahammer2@
         ?foe.armor < 1
-          equipL @fsword1@
-          equipR @fsword2@
+          equipL @vsword1@
+          equipR @vsword2@
       :?foe.debuffs.string = "chill:6"
         equipL @fsword1@
         equipR @fsword2@
