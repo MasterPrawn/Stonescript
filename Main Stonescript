@@ -438,6 +438,9 @@ AAC()
         equipL mind
       :?foe.damage = 1
         hammer_use()
+        ?ham_on_cd()
+          equipL @vsword1@
+          equipR @vsword2@
       :?foe.debuffs.string ! "chill:6"
         equipL @iwand1@
         equipR @iwand2@
