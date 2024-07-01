@@ -122,7 +122,7 @@ func mask_use()
     activate R
  
 func blade_use()
-  ?foe.GetCount(30) > 7 &
+  ?foe.GetCount(30) > 7 & foe ! boss &
   ^item.GetCooldown(＂blade＂) <= 0
     equip blade
     activate R
@@ -389,7 +389,8 @@ AAC()
     bardiche_use()
     ?bar_on_cd()
       ?foe.hp <= 90
-        blade_use()
+        equip blade
+        activate R
       ?foe.debuffs.string ! "chill:6"
         equipL @iwand1@
         equipR @iwand2@
