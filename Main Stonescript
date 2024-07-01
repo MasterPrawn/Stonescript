@@ -434,7 +434,7 @@ AAC()
     ?foe.damage = 1
       hammer_use()
     ?bar_on_cd()
-      ?foe.state = 115 & foe.time = 60
+      ?foe.state = 115 & foe.time = 75
         equipL mind
       :?foe.damage = 1
         hammer_use()
