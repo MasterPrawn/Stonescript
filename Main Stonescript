@@ -388,6 +388,8 @@ AAC()
   ?foe = acronian
     bardiche_use()
     ?bar_on_cd()
+      ?foe.hp <= 90
+        blade_use()
       ?foe.debuffs.string ! "chill:6"
         equipL @iwand1@
         equipR @iwand2@
