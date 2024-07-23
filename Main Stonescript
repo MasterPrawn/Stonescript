@@ -4,12 +4,12 @@ var vsword1 = "vigor sword +15"
 var vsword2 = "vigor sword +14"
 var asword1 = "aether sword +15"
 var asword2 = "aether sword +14"
-var fsword1 = "fire sword +15"
-var fsword2 = "fire sword +14"
+var fsword1 = "fire sword +18"
+var fsword2 = "fire sword +16"
 var isword1 = "ice sword +15"
 var isword2 = "ice sword +14"
-var ahammer1 = "aether hammer +11"
-var ahammer2 = "aether hammer +10"
+var ahammer1 = "aether hammer +15"
+var ahammer2 = "aether hammer +14"
 var iwand1 = "ice wand +15"
 var iwand2 = "ice wand +14"
 var regenshield1 = "compound shield +15"
@@ -53,8 +53,8 @@ var regenshield2 = "compound shield +14"
   >c-30,7,#44D62C,RDY
 >c-45,10,BUFFS:   @buffs.string@
 >c-45,11,DEBUFFS: @debuffs.string@
->c-45,9,foe debuff:@foe.debuffs.string@
->c-45,8,foe buff:  @foe.buffs.string@
+>c-45,9,FOE DEBUFFS:@foe.debuffs.string@
+>c-45,8,FOE BUFFS:  @foe.buffs.string@
 
 //============================================//
 
