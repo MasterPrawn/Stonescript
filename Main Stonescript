@@ -4,7 +4,7 @@ var vsword1 = "vigor sword +15"
 var vsword2 = "vigor sword +14"
 var asword1 = "aether sword +15"
 var asword2 = "aether sword +14"
-var fsword1 = "fire sword +18"
+var fsword1 = "fire sword +20"
 var fsword2 = "fire sword +16"
 var isword1 = "ice sword +15"
 var isword2 = "ice sword +14"
@@ -388,7 +388,7 @@ AAC()
   ?foe = acronian
     bardiche_use()
     ?bar_on_cd()
-      ?foe.hp <= 90
+      ?foe.hp <= 140
         equip blade
         activate R
       ?foe.debuffs.string ! "chill:6"
@@ -404,8 +404,8 @@ AAC()
         equipL @iwand1@
         equipR @iwand2@
       :
-        equipL @vsword1@
-        equipR @vsword2@
+        equipL @fsword1@
+        equipR @fsword2@
   ?foe = elements
     bardiche_use()
     ?bar_on_cd()
