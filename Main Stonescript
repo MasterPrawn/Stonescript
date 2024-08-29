@@ -372,8 +372,9 @@ AAC()
     :?foe.state = 32 & foe.time = 30
       equipL mind
   :?foe = poena
-    equipR aether talisman
-    activate R
+    ?summon.count = 1
+      equipR aether talisman
+      activate R
     ?summon.count = 0
       equipL @sword1@
       equipR @sword2@
