@@ -361,6 +361,10 @@ AAC()
   
 ?loc = canyon & summon.count = 1
   ?foe = xyloalgia
+    ?summon.count = 1
+      equipL @sword1@
+      equipR aether talisman
+      activate R
     ?foe.state ! 32
       bardiche_use()
       ?bar_on_cd() & foe.distance <= 10
