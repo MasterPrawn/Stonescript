@@ -203,7 +203,7 @@ AAC()
 
 ?loc = rocky & summon.count = 0
   fire_summ()
-:? summon.count = 0
+:?summon.count = 0 & foe ! poena
   aether_summ()
 
 ?loc = temple & summon.count = 1
@@ -359,7 +359,7 @@ AAC()
     equipR ice shield
   
 
-?loc = canyon & summon.count = 1
+?loc = canyon
   ?foe = xyloalgia
     ?foe.state ! 32
       bardiche_use()
