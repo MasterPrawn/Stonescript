@@ -361,7 +361,6 @@ AAC()
 
 ?loc = canyon & summon.count = 1
   ?foe = xyloalgia
-    activate void
     ?foe.state ! 32
       bardiche_use()
       ?bar_on_cd() & foe.distance <= 10
@@ -373,8 +372,11 @@ AAC()
     :?foe.state = 32 & foe.time = 30
       equipL mind
   :?foe = poena
-    equipL @sword1@
-    equipR @sword2@
+    equipR aether talisman
+    activate R
+    ?summon.count = 0
+      equipL @sword1@
+      equipR @sword2@
   :?foe = wasp & foe.distance <= 15
     equipL @iwand1@
     equipR @iwand2@
