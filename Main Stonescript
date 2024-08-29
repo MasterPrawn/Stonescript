@@ -358,7 +358,6 @@ AAC()
     equipL @isword1@
     equipR ice shield
   
-
 ?loc = canyon
   ?foe = xyloalgia
     ?foe.state ! 32
@@ -373,6 +372,7 @@ AAC()
       equipL mind
   :?foe = poena
     ?summon.count = 1
+      equipL @sword1@
       equipR aether talisman
       activate R
     ?summon.count = 0
