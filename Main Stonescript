@@ -183,7 +183,7 @@ func AAC()
   var leftItem = item.left
   var rightItem = item.right 
   ?item.right.state = 3
-    equipR shield *0 +0
+    equipR aether talisman
   ?item.left.state = 3
     equipL wand *0 +0
   ?isTwoHanded
