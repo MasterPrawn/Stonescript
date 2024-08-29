@@ -1,19 +1,19 @@
-var psword1 = "poison sword +15"
-var psword2 = "poison sword +14"
-var vsword1 = "vigor sword +15"
-var vsword2 = "vigor sword +14"
-var asword1 = "aether sword +15"
-var asword2 = "aether sword +14"
-var fsword1 = "fire sword +21"
-var fsword2 = "fire sword +16"
-var isword1 = "ice sword +15"
-var isword2 = "ice sword +14"
-var ahammer1 = "aether hammer +15"
-var ahammer2 = "aether hammer +14"
-var iwand1 = "ice wand +15"
-var iwand2 = "ice wand +14"
-var regenshield1 = "compound shield +15"
-var regenshield2 = "compound shield +14"
+var psword1 = ＂poison sword +15＂
+var psword2 = ＂poison sword +14＂
+var vsword1 = ＂vigor sword +15＂
+var vsword2 = ＂vigor sword +14＂
+var asword1 = ＂aether sword +15＂
+var asword2 = ＂aether sword +14＂
+var fsword1 = ＂fire sword +20＂
+var fsword2 = ＂fire sword +16＂
+var isword1 = ＂ice sword +15＂
+var isword2 = ＂ice sword +14＂
+var ahammer1 = ＂aether hammer +15＂
+var ahammer2 = ＂aether hammer +14＂
+var iwand1 = ＂ice wand +21＂
+var iwand2 = ＂ice wand +20＂
+var regenshield1 = ＂compound shield +15＂
+var regenshield2 = ＂compound shield +14＂
 
 //============================================//
 
@@ -199,7 +199,7 @@ func AAC()
 
 AAC()
 
-?loc = rocky & summon.count = 0
+?loc = rocky | loc = canyon & summon.count = 0
   fire_summ()
 :? summon.count = 0
   aether_summ()
@@ -370,8 +370,7 @@ AAC()
     :?foe.state = 32 & foe.time = 30
       equipL mind
   :?foe = poena
-    equipL @ahammer1@
-    equipR @ahammer2@
+    equip skeleton
   :?foe = wasp & foe.distance <= 15
     equipL @iwand1@
     equipR @iwand2@
@@ -388,29 +387,35 @@ AAC()
   ?foe = acronian
     bardiche_use()
     ?bar_on_cd()
-      ?foe.hp <= 140
+      ?foe.hp <= 170
         equip blade
         activate R
-      ?foe.debuffs.string ! "chill:6"
+      :?foe.debuffs.string ! ＂chill:6＂
         equipL @iwand1@
         equipR @iwand2@
-      :
+      :?hp < maxhp
         equipL @vsword1@
         equipR @vsword2@
+      :
+        equipL @fsword1@
+        equipR @fsword2@
   ?foe = bearer
     bardiche_use()
     ?bar_on_cd()
-      ?foe.debuffs.string ! "chill:6"
+      ?foe.debuffs.string ! ＂chill:6＂
         equipL @iwand1@
         equipR @iwand2@
+      :?hp < maxhp
+        equipL @vsword1@
+        equipR @vsword2@
       :
         equipL @fsword1@
         equipR @fsword2@
   ?foe = elements
     bardiche_use()
     ?bar_on_cd()
-      ?foe.debuffs.string ! "chill:6"
-      ^& foe.buffs.string ! "buff_protection"
+      ?foe.debuffs.string ! ＂chill:6＂
+      ^& foe.buffs.string ! ＂buff_protection＂
         equipL @iwand1@
         equipR @iwand2@
       :?foe = ice
@@ -441,17 +446,17 @@ AAC()
         ?ham_on_cd()
           equipL @vsword1@
           equipR @vsword2@
-      :?foe.debuffs.string ! "chill:6"
+      :?foe.debuffs.string ! ＂chill:6＂
         equipL @iwand1@
         equipR @iwand2@
-      :?foe.buffs.string = "adaptive_defense_fire:1"
+      :?foe.buffs.string = ＂adaptive_defense_fire:1＂
         ?foe.armor > 1
           equipL @ahammer1@
           equipR @ahammer2@
         ?foe.armor < 1
           equipL @vsword1@
           equipR @vsword2@
-      :?foe.debuffs.string = "chill:6"
+      :?foe.debuffs.string = ＂chill:6＂
         equipL @fsword1@
         equipR @fsword2@
 bdashstaff_use()
