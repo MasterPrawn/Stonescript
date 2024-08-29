@@ -203,7 +203,7 @@ AAC()
 
 ?loc = rocky & summon.count = 0
   fire_summ()
-:?summon.count = 0 | foe ! poena
+:?summon.count = 0 & foe ! poena
   aether_summ()
 
 ?loc = temple & summon.count = 1
@@ -358,7 +358,7 @@ AAC()
     equipL @isword1@
     equipR ice shield
   
-?loc = canyon
+?loc = canyon & summon.count = 1
   ?foe = xyloalgia
     ?foe.state ! 32
       bardiche_use()
@@ -389,6 +389,14 @@ AAC()
   :
     equipL @vsword1@
     equipR @vsword2@
+?foe = poena
+  ?summon.count = 1
+    equipL @sword1@
+    equipR aether talisman
+    activate R
+  ?summon.count = 0
+    equipL @sword1@
+    equipR @sword2@
 
 ?loc = rocky & summon.count = 1
   ?foe = acronian
