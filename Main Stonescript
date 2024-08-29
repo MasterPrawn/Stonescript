@@ -370,9 +370,6 @@ AAC()
         equipR @vsword2@
     :?foe.state = 32 & foe.time = 30
       equipL mind
-    ?summon.count = 0
-      equipL @sword1@
-      equipR @sword2@
   :?foe = wasp & foe.distance <= 15
     equipL @iwand1@
     equipR @iwand2@
