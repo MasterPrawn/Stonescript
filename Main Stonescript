@@ -362,6 +362,7 @@ AAC()
 ?loc = canyon & summon.count = 1
   ?foe = xyloalgia
     ?summon.count = 1
+    ^& item.GetCooldown(＂aether_talisman＂) <= 0
       equipL @sword1@
       equipR aether talisman
       activate R
