@@ -4,10 +4,12 @@ var vsword1 = ＂vigor sword +15＂
 var vsword2 = ＂vigor sword +14＂
 var asword1 = ＂aether sword +15＂
 var asword2 = ＂aether sword +14＂
-var fsword1 = ＂fire sword +20＂
-var fsword2 = ＂fire sword +16＂
+var fsword1 = ＂fire sword +21＂
+var fsword2 = ＂fire sword +20＂
 var isword1 = ＂ice sword +15＂
 var isword2 = ＂ice sword +14＂
+var sword1 = ＂stone sword +13＂
+var sword2 = ＂stone sword +12＂
 var ahammer1 = ＂aether hammer +15＂
 var ahammer2 = ＂aether hammer +14＂
 var iwand1 = ＂ice wand +21＂
@@ -199,7 +201,7 @@ func AAC()
 
 AAC()
 
-?loc = rocky | loc = canyon & summon.count = 0
+?loc = rocky & summon.count = 0
   fire_summ()
 :? summon.count = 0
   aether_summ()
@@ -359,6 +361,7 @@ AAC()
 
 ?loc = canyon & summon.count = 1
   ?foe = xyloalgia
+    activate void
     ?foe.state ! 32
       bardiche_use()
       ?bar_on_cd() & foe.distance <= 10
@@ -370,7 +373,8 @@ AAC()
     :?foe.state = 32 & foe.time = 30
       equipL mind
   :?foe = poena
-    equip skeleton
+    equipL @sword1@
+    equipR @sword2@
   :?foe = wasp & foe.distance <= 15
     equipL @iwand1@
     equipR @iwand2@
