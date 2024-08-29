@@ -203,7 +203,7 @@ AAC()
 
 ?loc = rocky & summon.count = 0
   fire_summ()
-:?summon.count = 0 & foe ! poena
+:?summon.count = 0 | foe ! poena
   aether_summ()
 
 ?loc = temple & summon.count = 1
