@@ -360,23 +360,7 @@ AAC()
     equipR ice shield
   
 ?loc = canyon & summon.count = 1
-  ?foe = xyloalgia
-    ?summon.count = 1
-    ^& item.GetCooldown(＂aether_talisman＂) <= 0
-      equipL @sword1@
-      equipR aether talisman
-      activate R
-    ?foe.state ! 32
-      bardiche_use()
-      ?bar_on_cd() & foe.distance <= 10
-        equipL @vsword1@
-        equipR @vsword2@
-      :
-        equipL @vsword1@
-        equipR @vsword2@
-    :?foe.state = 32 & foe.time = 30
-      equipL mind
-  :?foe = wasp & foe.distance <= 15
+  ?foe = wasp & foe.distance <= 15
     equipL @iwand1@
     equipR @iwand2@
   :?foe.distance <= 15
@@ -395,7 +379,22 @@ AAC()
   ?summon.count = 0
     equipL @sword1@
     equipR @sword2@
-
+?foe = xyloalgia
+  ?summon.count = 1
+  ^& item.GetCooldown(＂aether_talisman＂) <= 0
+    equipL @sword1@
+    equipR aether talisman
+    activate R
+  ?foe.state ! 32
+    bardiche_use()
+    ?bar_on_cd() & foe.distance <= 10
+      equipL @vsword1@
+      equipR @vsword2@
+    :
+      equipL @vsword1@
+      equipR @vsword2@
+  :?foe.state = 32 & foe.time = 30
+    equipL mind
 ?loc = rocky & summon.count = 1
   ?foe = acronian
     bardiche_use()
