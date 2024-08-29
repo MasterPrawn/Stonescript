@@ -173,6 +173,7 @@ func armor_regen()
     equipL triskelion
     equipR @regenshield2@
   ?pickup.distance < 15
+  ^& foe ! poena
     equipL star
     equipR @regenshield1@
 
